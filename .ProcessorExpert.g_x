@@ -1,0 +1,115 @@
+<CodeGenerationInfo>
+  <ToolchainSettings>
+    <option>
+      <name>PE_G_4PEx_ToolChain_Compiler_SearchUserPaths</name>
+      <values lines_count="4">
+        <Line>"${ProcessorExpertPath}/lib/Kinetis/iofiles"</Line>
+        <Line>"${ProcessorExpertPath}/lib/Kinetis/pdd/inc"</Line>
+        <Line>"${ProjDirPath}/Sources"</Line>
+        <Line>"${ProjDirPath}/Generated_Code"</Line>
+      </values>
+    </option>
+  </ToolchainSettings>
+  <GeneratedFilesList>
+    <GeneratedByPE>
+      <File Name="Documentation\ProcessorExpert_SIGNALS.txt" FileDate="2013-03-15, 11:32:45" FileAge="1363343565240" FileType="3072" />
+      <File Name="Generated_Code\ExtIntLdd4.c" FileDate="2013-03-15, 11:32:44" FileAge="1363343564810" FileType="4411" />
+      <File Name="Generated_Code\ExtIntLdd3.h" FileDate="2013-03-15, 11:32:44" FileAge="1363343564857" FileType="4411" />
+      <File Name="Generated_Code\EncoderRefrenztimer.h" FileDate="2013-03-15, 11:32:45" FileAge="1363343565185" FileType="4411" CompNumb="15" />
+      <File Name="Generated_Code\Lichtschranke.h" FileDate="2013-03-15, 11:32:45" FileAge="1363343565015" FileType="4411" CompNumb="24" />
+      <File Name="Generated_Code\Start.h" FileDate="2013-03-15, 11:32:44" FileAge="1363343564594" FileType="4411" CompNumb="45" />
+      <File Name="Generated_Code\ExtIntLdd3.c" FileDate="2013-03-15, 11:32:44" FileAge="1363343564847" FileType="4411" />
+      <File Name="Generated_Code\ExtIntLdd2.h" FileDate="2013-03-15, 11:32:45" FileAge="1363343565135" FileType="4411" />
+      <File Name="Generated_Code\EncoderRefrenztimer.c" FileDate="2013-03-15, 11:32:45" FileAge="1363343565176" FileType="4411" CompNumb="15" />
+      <File Name="Generated_Code\Lichtschranke.c" FileDate="2013-03-15, 11:32:45" FileAge="1363343565008" FileType="4411" CompNumb="24" />
+      <File Name="Generated_Code\Start.c" FileDate="2013-03-15, 11:32:44" FileAge="1363343564585" FileType="4411" CompNumb="45" />
+      <File Name="Generated_Code\PE_LDD.h" FileDate="2013-03-15, 11:32:44" FileAge="1363343564306" FileType="4411" CompNumb="2" />
+      <File Name="Generated_Code\ExtIntLdd2.c" FileDate="2013-03-15, 11:32:45" FileAge="1363343565126" FileType="4411" />
+      <File Name="Generated_Code\PwmLdd2.h" FileDate="2013-03-15, 11:32:44" FileAge="1363343564463" FileType="4411" />
+      <File Name="Generated_Code\I2cSlave.h" FileDate="2013-03-15, 11:32:45" FileAge="1363343565205" FileType="4411" CompNumb="6" />
+      <File Name="Generated_Code\ExtIntLdd1.h" FileDate="2013-03-15, 11:32:45" FileAge="1363343565168" FileType="4411" />
+      <File Name="Project_Settings\Linker_Files\ProcessorExpert.ld" FileDate="2013-03-14, 10:25:21" FileAge="1363253121169" FileType="4" CompNumb="2" />
+      <File Name="Generated_Code\PE_Const.h" FileDate="2013-03-15, 11:32:44" FileAge="1363343564380" FileType="4411" />
+      <File Name="Generated_Code\PE_LDD.c" FileDate="2013-03-15, 11:32:44" FileAge="1363343564314" FileType="4411" CompNumb="2" />
+      <File Name="Generated_Code\PwmLdd2.c" FileDate="2013-03-15, 11:32:44" FileAge="1363343564453" FileType="4411" />
+      <File Name="Generated_Code\I2cSlave.c" FileDate="2013-03-15, 11:32:45" FileAge="1363343565194" FileType="4411" CompNumb="6" />
+      <File Name="Generated_Code\ExtIntLdd1.c" FileDate="2013-03-15, 11:32:45" FileAge="1363343565159" FileType="4411" />
+      <File Name="Generated_Code\PwmLdd1.h" FileDate="2013-03-15, 11:32:44" FileAge="1363343564512" FileType="4411" />
+      <File Name="Generated_Code\PwmLdd1.c" FileDate="2013-03-15, 11:32:44" FileAge="1363343564498" FileType="4411" />
+      <File Name="Generated_Code\Cpu.h" FileDate="2013-03-15, 11:32:44" FileAge="1363343564360" FileType="4411" CompNumb="2" />
+      <File Name="Generated_Code\US_Rechts_HeckListener.h" FileDate="2013-03-15, 11:32:44" FileAge="1363343564718" FileType="4411" CompNumb="39" />
+      <File Name="Generated_Code\Cpu.c" FileDate="2013-03-15, 11:32:44" FileAge="1363343564323" FileType="4411" CompNumb="2" />
+      <File Name="Generated_Code\US_Rechts_HeckListener.c" FileDate="2013-03-15, 11:32:44" FileAge="1363343564708" FileType="4411" CompNumb="39" />
+      <File Name="Generated_Code\TU1.h" FileDate="2013-03-15, 11:32:44" FileAge="1363343564536" FileType="4411" CompNumb="55" />
+      <File Name="Generated_Code\TU1.c" FileDate="2013-03-15, 11:32:44" FileAge="1363343564523" FileType="4411" CompNumb="55" />
+      <File Name="Generated_Code\US_DachListener.h" FileDate="2013-03-15, 11:32:44" FileAge="1363343564678" FileType="4411" CompNumb="41" />
+      <File Name="Project_Settings\Debugger\MKL25Z128.mem" FileDate="2013-03-14, 10:25:21" FileAge="1363253121184" FileType="4411" CompNumb="2" />
+      <File Name="Generated_Code\US_DachListener.c" FileDate="2013-03-15, 11:32:44" FileAge="1363343564667" FileType="4411" CompNumb="41" />
+      <File Name="Generated_Code\EncoderMotorB.h" FileDate="2013-03-15, 11:32:45" FileAge="1363343565118" FileType="4411" CompNumb="18" />
+      <File Name="Generated_Code\IO_Map.h" FileDate="2013-03-15, 11:32:44" FileAge="1363343564371" FileType="4411" />
+      <File Name="Generated_Code\EncoderMotorB.c" FileDate="2013-03-15, 11:32:45" FileAge="1363343565109" FileType="4411" CompNumb="18" />
+      <File Name="Generated_Code\US_FrontListener.h" FileDate="2013-03-15, 11:32:44" FileAge="1363343564838" FileType="4411" CompNumb="33" />
+      <File Name="Generated_Code\EncoderMotorA.h" FileDate="2013-03-15, 11:32:45" FileAge="1363343565151" FileType="4411" CompNumb="16" />
+      <File Name="Generated_Code\IO_Res_Lueft.h" FileDate="2013-03-15, 11:32:44" FileAge="1363343564944" FileType="4411" CompNumb="28" />
+      <File Name="Generated_Code\US_HeckListener.h" FileDate="2013-03-15, 11:32:44" FileAge="1363343564799" FileType="4411" CompNumb="35" />
+      <File Name="Generated_Code\US_FrontListener.c" FileDate="2013-03-15, 11:32:44" FileAge="1363343564829" FileType="4411" CompNumb="33" />
+      <File Name="Generated_Code\LED1_4.h" FileDate="2013-03-15, 11:32:44" FileAge="1363343564981" FileType="4411" CompNumb="26" />
+      <File Name="Generated_Code\EncoderMotorA.c" FileDate="2013-03-15, 11:32:45" FileAge="1363343565143" FileType="4411" CompNumb="16" />
+      <File Name="Generated_Code\IO_Res_Lueft.c" FileDate="2013-03-15, 11:32:44" FileAge="1363343564934" FileType="4411" CompNumb="28" />
+      <File Name="Generated_Code\US_Triger.h" FileDate="2013-03-15, 11:32:45" FileAge="1363343565046" FileType="4411" CompNumb="22" />
+      <File Name="Generated_Code\US_HeckListener.c" FileDate="2013-03-15, 11:32:44" FileAge="1363343564787" FileType="4411" CompNumb="35" />
+      <File Name="Generated_Code\LED1_4.c" FileDate="2013-03-15, 11:32:44" FileAge="1363343564972" FileType="4411" CompNumb="26" />
+      <File Name="Generated_Code\US_Triger.c" FileDate="2013-03-15, 11:32:45" FileAge="1363343565037" FileType="4411" CompNumb="22" />
+      <File Name="Generated_Code\PE_Error.h" FileDate="2013-03-15, 11:32:44" FileAge="1363343564420" FileType="4411" />
+      <File Name="Generated_Code\Stop.h" FileDate="2013-03-15, 11:32:44" FileAge="1363343564557" FileType="4411" CompNumb="47" />
+      <File Name="Generated_Code\RegelungReferenztimer.h" FileDate="2013-03-15, 11:32:44" FileAge="1363343564925" FileType="4411" CompNumb="30" />
+      <File Name="Generated_Code\Stop.c" FileDate="2013-03-15, 11:32:44" FileAge="1363343564549" FileType="4411" CompNumb="47" />
+      <File Name="Generated_Code\BitsIoLdd4.h" FileDate="2013-03-15, 11:32:44" FileAge="1363343564963" FileType="4411" />
+      <File Name="Generated_Code\RegelungReferenztimer.c" FileDate="2013-03-15, 11:32:44" FileAge="1363343564915" FileType="4411" CompNumb="30" />
+      <File Name="Generated_Code\BitsIoLdd4.c" FileDate="2013-03-15, 11:32:44" FileAge="1363343564952" FileType="4411" />
+      <File Name="Generated_Code\BitsIoLdd3.h" FileDate="2013-03-15, 11:32:44" FileAge="1363343564999" FileType="4411" />
+      <File Name="Generated_Code\BitsIoLdd3.c" FileDate="2013-03-15, 11:32:44" FileAge="1363343564989" FileType="4411" />
+      <File Name="Generated_Code\BitsIoLdd2.h" FileDate="2013-03-15, 11:32:45" FileAge="1363343565064" FileType="4411" />
+      <File Name="Generated_Code\BitsIoLdd2.c" FileDate="2013-03-15, 11:32:45" FileAge="1363343565054" FileType="4411" />
+      <File Name="Generated_Code\BitsIoLdd1.h" FileDate="2013-03-15, 11:32:45" FileAge="1363343565100" FileType="4411" />
+      <File Name="Sources\ProcessorExpert.c" FileDate="2013-03-15, 11:24:34" FileAge="1363343074681" FileType="128" />
+      <File Name="Generated_Code\BitsIoLdd1.c" FileDate="2013-03-15, 11:32:45" FileAge="1363343565090" FileType="4411" />
+      <File Name="Generated_Code\MotortreiberIN1_IN4.h" FileDate="2013-03-15, 11:32:45" FileAge="1363343565082" FileType="4411" CompNumb="20" />
+      <File Name="Sources\Events.h" FileDate="2013-03-15, 11:15:20" FileAge="1363342520505" FileType="16896" />
+      <File Name="Generated_Code\US_Rechts_FrontListener.h" FileDate="2013-03-15, 11:32:44" FileAge="1363343564759" FileType="4411" CompNumb="37" />
+      <File Name="Generated_Code\MotortreiberIN1_IN4.c" FileDate="2013-03-15, 11:32:45" FileAge="1363343565073" FileType="4411" CompNumb="20" />
+      <File Name="Sources\Events.c" FileDate="2013-03-15, 11:21:53" FileAge="1363342913816" FileType="16896" />
+      <File Name="Generated_Code\MotorB_PWM.h" FileDate="2013-03-15, 11:32:44" FileAge="1363343564444" FileType="4411" CompNumb="58" />
+      <File Name="Generated_Code\US_Rechts_FrontListener.c" FileDate="2013-03-15, 11:32:44" FileAge="1363343564749" FileType="4411" CompNumb="37" />
+      <File Name="Generated_Code\MotorB_PWM.c" FileDate="2013-03-15, 11:32:44" FileAge="1363343564435" FileType="4411" CompNumb="58" />
+      <File Name="Generated_Code\US_DachTrigger.h" FileDate="2013-03-15, 11:32:44" FileAge="1363343564633" FileType="4411" CompNumb="43" />
+      <File Name="Generated_Code\US_DachTrigger.c" FileDate="2013-03-15, 11:32:44" FileAge="1363343564623" FileType="4411" CompNumb="43" />
+      <File Name="Generated_Code\Vectors.c" FileDate="2013-03-15, 11:32:44" FileAge="1363343564295" FileType="4411" CompNumb="2" />
+      <File Name="Generated_Code\ExtIntLdd9.h" FileDate="2013-03-15, 11:32:44" FileAge="1363343564575" FileType="4411" />
+      <File Name="Generated_Code\ExtIntLdd9.c" FileDate="2013-03-15, 11:32:44" FileAge="1363343564565" FileType="4411" />
+      <File Name="Generated_Code\MotorA_PWM.h" FileDate="2013-03-15, 11:32:44" FileAge="1363343564486" FileType="4411" CompNumb="56" />
+      <File Name="Generated_Code\ExtIntLdd8.h" FileDate="2013-03-15, 11:32:44" FileAge="1363343564614" FileType="4411" />
+      <File Name="Generated_Code\ExtIntLdd8.c" FileDate="2013-03-15, 11:32:44" FileAge="1363343564603" FileType="4411" />
+      <File Name="Generated_Code\MotorA_PWM.c" FileDate="2013-03-15, 11:32:44" FileAge="1363343564474" FileType="4411" CompNumb="56" />
+      <File Name="Generated_Code\ExtIntLdd7.h" FileDate="2013-03-15, 11:32:44" FileAge="1363343564698" FileType="4411" />
+      <File Name="Documentation\ProcessorExpert_Settings.xml" FileDate="2013-03-15, 11:15:21" FileAge="1363342521571" FileType="3072" />
+      <File Name="Generated_Code\US_Referenztimer.h" FileDate="2013-03-15, 11:32:44" FileAge="1363343564905" FileType="4411" CompNumb="31" />
+      <File Name="Generated_Code\ExtIntLdd7.c" FileDate="2013-03-15, 11:32:44" FileAge="1363343564688" FileType="4411" />
+      <File Name="Generated_Code\PE_Types.h" FileDate="2013-03-15, 11:32:44" FileAge="1363343564427" FileType="4411" />
+      <File Name="Generated_Code\ExtIntLdd6.h" FileDate="2013-03-15, 11:32:44" FileAge="1363343564740" FileType="4411" />
+      <File Name="Generated_Code\BitIoLdd2.h" FileDate="2013-03-15, 11:32:44" FileAge="1363343564657" FileType="4411" />
+      <File Name="Generated_Code\US_Referenztimer.c" FileDate="2013-03-15, 11:32:44" FileAge="1363343564895" FileType="4411" CompNumb="31" />
+      <File Name="Generated_Code\ExtIntLdd6.c" FileDate="2013-03-15, 11:32:44" FileAge="1363343564729" FileType="4411" />
+      <File Name="Generated_Code\ExtIntLdd5.h" FileDate="2013-03-15, 11:32:44" FileAge="1363343564779" FileType="4411" />
+      <File Name="Generated_Code\I2C_Kompass.h" FileDate="2013-03-15, 11:32:44" FileAge="1363343564882" FileType="4411" CompNumb="32" />
+      <File Name="Generated_Code\BitIoLdd2.c" FileDate="2013-03-15, 11:32:44" FileAge="1363343564646" FileType="4411" />
+      <File Name="Generated_Code\BitIoLdd1.h" FileDate="2013-03-15, 11:32:45" FileAge="1363343565030" FileType="4411" />
+      <File Name="Generated_Code\ExtIntLdd5.c" FileDate="2013-03-15, 11:32:44" FileAge="1363343564769" FileType="4411" />
+      <File Name="Documentation\ProcessorExpert.txt" FileDate="2013-03-15, 11:15:21" FileAge="1363342521633" FileType="3072" />
+      <File Name="Generated_Code\I2C_Kompass.c" FileDate="2013-03-15, 11:32:44" FileAge="1363343564868" FileType="4411" CompNumb="32" />
+      <File Name="Generated_Code\ExtIntLdd4.h" FileDate="2013-03-15, 11:32:44" FileAge="1363343564820" FileType="4411" />
+      <File Name="Generated_Code\BitIoLdd1.c" FileDate="2013-03-15, 11:32:45" FileAge="1363343565022" FileType="4411" />
+    </GeneratedByPE>
+  </GeneratedFilesList>
+  <CodeGenReference>12</CodeGenReference>
+</CodeGenerationInfo>
