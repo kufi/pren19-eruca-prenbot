@@ -522,7 +522,7 @@ void US_DachListener_OnInterrupt(void)
 
 void I2cSlave_OnSlaveBlockSent(LDD_TUserData *UserDataPtr)
 {
-  /* Write your code here ... */
+	raspberryReceiveBlock();
 }
 
 /*
@@ -545,7 +545,8 @@ void I2cSlave_OnSlaveBlockSent(LDD_TUserData *UserDataPtr)
 */
 void I2cSlave_OnSlaveBlockReceived(LDD_TUserData *UserDataPtr)
 {
-  /* Write your code here ... */
+	RaspberryPtr raspberryPtr = (RaspberryPtr)UserDataPtr;
+	raspberryPtr->received = 1;
 }
 
 /*

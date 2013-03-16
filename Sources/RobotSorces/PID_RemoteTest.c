@@ -1,7 +1,7 @@
 #include "Raspberry_I2C.h"
 #include "PID.h"
 #include "EasyRider.h"
-#include "cstdlib"
+#include "PE_Types.h"
 
 extern RaspberryPtr raspberryDataPtr;
 
@@ -11,7 +11,8 @@ void remotecontroll(byte *buffer){
 	int parameter;
 	
 	
-	if(raspberryDataPtr.received){
+	if(raspberryDataPtr->received){
+		raspberryDataPtr->received = 0;
 		command= (char) *buffer ;
 		parameter= (*(buffer+1) << 8) + *(buffer+1);
 		
@@ -36,7 +37,7 @@ void remotecontroll(byte *buffer){
 			    
 			 }
 		
-			
+		raspberryReceiveBlock();
 		
 	}
 	
