@@ -45,7 +45,9 @@ void initRaspberryI2C()
 
 void receiveBlock()
 {
+	int i;
 	I2cSlave_SlaveReceiveBlock(raspberryPtr, buffer, commandLength);
+	i=3;
 }
 
 void blockReceived()
