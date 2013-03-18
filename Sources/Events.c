@@ -91,7 +91,7 @@ void EncoderMotorA_OnInterrupt(void)
 	if(EncoderMotorA_GetVal()){
 	tiks = EncoderRefrenztimer_GetCounterValue(MyFakeEncoderRefrenzTimerPtr);
 	if(aA>=29) aA=0;
-	tikAarray[aA]= tiks - oldticksA;
+	tikAarray[aA++]= tiks - oldticksA;
 	oldticksA = tiks;
 	}
 	stepsA++;
@@ -182,7 +182,8 @@ void EncoderMotorB_OnInterrupt(void)
 {
 	if(EncoderMotorB_GetVal()){
 	tiks = EncoderRefrenztimer_GetCounterValue(MyFakeEncoderRefrenzTimerPtr);
-	tikAarray[aB]= tiks - oldticksB;
+	if(aB>=29) aB=0;
+	tikAarray[aB++]= tiks - oldticksB;
 	oldticksB = tiks;
 	}
 	stepsB++;
@@ -417,7 +418,7 @@ void RegelungReferenztimer_OnCounterRestart(LDD_TUserData *UserDataPtr)
 	
 	if(PIDinterruptCounter>= regelverzoegerung){		
 		if(PIDA_Activated){
-      //calcAritmeticMidleA(void);
+      calcAritmeticMidleA();
 	  PIDA_Testresault =pidA(PIDA_Testsollwert, tiksA_am);
 	  newIntensityEngineA = intensityEngineA_HR - (PIDA_Testresault);
 	  if(newIntensityEngineA>=0){
@@ -428,7 +429,7 @@ void RegelungReferenztimer_OnCounterRestart(LDD_TUserData *UserDataPtr)
 	  	  }
 	 }
 	if(PIDB_Activated){
-		//calcAritmeticMidleB(void);
+		calcAritmeticMidleB();
 		PIDB_Testresault =pidB(PIDB_Testsollwert, tiksB_am);
 		newIntensityEngineB = intensityEngineB_HR - (PIDB_Testresault);
 		if(newIntensityEngineB>=0){

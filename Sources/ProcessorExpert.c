@@ -102,7 +102,8 @@ int main(void)
   
   //testMotor();
   //testCalibratePID_A(1000,1,0,0,1000,20);
-  initRaspberryI2C();
+  //initRaspberryI2C();
+  //testUS();
   for(;;) {
 	  
 	  

@@ -23,7 +23,13 @@ void initEncoders(void){
 }
 
 void calcAritmeticMidleA(void){
-	
+	int summe,i=0;
+		
+	for(i;i<=aA;i++){
+	 summe += tikAarray[i];
+	}
+	tiksA_am=summe/(aA+1);
+	aB=0;
 	if(tiksA_am<=50){
 		tiksA_am=0xFFFF;
 	}
