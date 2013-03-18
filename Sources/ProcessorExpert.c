@@ -28,6 +28,7 @@
 #include "MotorB_PWM.h"
 #include "MotorB_PWM.h"
 #include "PwmLdd2.h"
+#include "PE_Types.h"
 #include "EncoderRefrenztimer.h"
 #include "EncoderMotorA.h"
 #include "ExtIntLdd1.h"
@@ -77,7 +78,7 @@
 #include "EncoderMotorB.h"
 #include "ExtIntLdd9.h"
 /* Including shared modules, which are used for whole project */
-#include "PE_Types.h"
+#include "PE_Types.h"1
 #include "PE_Error.h"
 #include "PE_Const.h"
 #include "IO_Map.h"
