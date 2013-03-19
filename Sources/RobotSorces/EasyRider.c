@@ -9,6 +9,7 @@
 #include "Motor.h"
 #include "PID.h"
 #include "EasyRider.h"
+#include "MC_PID.h"
 
 
 void startRiding(void){
@@ -25,7 +26,7 @@ void startRiding(void){
 void testCalibratePID_A(int Max,int pFacktor, int iFacktor, int dFacktor, int sollwert, int istwert){
 	initPID(Max,pFacktor,iFacktor,dFacktor);
 	initEncoders();
-	regelverzoegerung=100;
+	regelverzoegerung=5;
 	PIDA_Testsollwert= sollwert;
 	PIDB_Testsollwert= sollwert;
 	PIDA_Testistwert= istwert;
@@ -35,6 +36,21 @@ void testCalibratePID_A(int Max,int pFacktor, int iFacktor, int dFacktor, int so
 	
 	
 }
+void testCalibratePID_MCStyle(int sr,int sl){
+	initEncoders();
+	regelverzoegerung=100;
+	pidInit();
+	pidSetSpeed(sr,sl);
+}
+
+void generateStepAnswer(void){
+	timeInMs=2;
+	sAnswergenon =1;
+	setMotorA_HR(0xFFFF);
+}
+
+
+
 void testMotor(void){
 	frekwentMotortestON =1;
 	initUS();

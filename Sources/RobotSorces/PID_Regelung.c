@@ -38,8 +38,10 @@ void initPID(int maximalausschlag_,int p_factor_,int i_factor_,int d_factor_){
 int pidA(int sollwert,int istwert){
 	int temp;
 	int ret;
+	int speed;
 	
-	errorA = sollwert - istwert;
+	speed=(100000/istwert)-10;
+	errorA = sollwert - speed;
 	
 	//Calculate Pterm and limit error overflow
 	if (errorA > maximalfehlerA){

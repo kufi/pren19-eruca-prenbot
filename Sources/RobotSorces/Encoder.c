@@ -15,36 +15,41 @@ void stopEncoding(void){
 	EncoderMotorB_Disable();
 }
 void initEncoders(void){
-	tiksA_am=0xFFFF;
-	tiksB_am=0xFFFF;
+	tiksA_am=2000;
+	tiksB_am=2000;
 	resetStepsA();
 	resetStepsB();
 	startEncoding();
 }
 
+
 void calcAritmeticMidleA(void){
-	int summe,i=0;
-		
-	for(i;i<=aA;i++){
+	int summe=0,i=0;
+	
+	if(aA<1){
+		tiksA_am=tiksA;
+	}else{
+	for(i;i<aA;i++){
 	 summe += tikAarray[i];
 	}
-	tiksA_am=summe/(aA+1);
-	aB=0;
-	if(tiksA_am<=50){
-		tiksA_am=0xFFFF;
+	tiksA_am=summe/(aA);
+	aA=0;
 	}
+	if(tiksA_am<50){
+		tiksA_am=9999;
+	 }
 }
 void calcAritmeticMidleB(void){
-	int summe,i=0;
+	int summe=0,i=0;
 	
 	for(i;i<=aB;i++){
 		summe += tikBarray[i];
 	}
 	tiksB_am=summe/(aB+1);
 	aB=0;
-	if(tiksB_am<=50){
-		tiksB_am=0xFFFF;
-	}
+	//if(tiksB_am<=20){
+	//	tiksB_am=2000;
+	//}
 }
 uint32_t calcDistAmm(void){
 	return (stepsA*UMPROSTEP)/1000;

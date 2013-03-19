@@ -78,7 +78,7 @@
 #include "EncoderMotorB.h"
 #include "ExtIntLdd9.h"
 /* Including shared modules, which are used for whole project */
-#include "PE_Types.h"1
+#include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
 #include "IO_Map.h"
@@ -105,10 +105,10 @@ int main(void)
   //testCalibratePID_A(1000,1,0,0,1000,20);
   //initRaspberryI2C();
   //testUS();
+  //startEncoding();
+  //testCalibratePID_MCStyle(5000,5000);
+  generateStepAnswer();
   for(;;) {
-	  
-	  
-
 	  }
 	  
 

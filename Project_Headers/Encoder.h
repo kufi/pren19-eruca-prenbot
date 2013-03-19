@@ -15,15 +15,17 @@ int aA;
 int aB;
 int eA;
 int eB;
-uint32_t tikAarray[30];
-uint32_t tiksA_am;
-uint32_t tikBarray[30];
-uint32_t tiksB_am;
-uint32_t oldticksA;
-uint32_t oldticksB;
+int tikAarray[30];
+int tiksA_am;
+int tiksA;
+int tiksB;
+int tikBarray[30];
+int tiksB_am;
+int oldticksA;
+int oldticksB;
 uint32_t stepsA;
 uint32_t stepsB;
-uint32_t tiks;
+int tiks;
 
 LDD_TDeviceData *MyFakeEncoderRefrenzTimerPtr;
 

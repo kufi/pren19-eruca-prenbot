@@ -28,6 +28,7 @@
 #include "motor_HR.h"
 #include "EasyRider.h"
 #include "Raspberry_I2C.h"
+#include "MC_PID.h"
 /*
 ** ===================================================================
 **     Event       :  Cpu_OnNMIINT (module Events)
@@ -71,6 +72,7 @@ void Cpu_OnNMIINT(void)
 */
 void EncoderRefrenztimer_OnCounterRestart(LDD_TUserData *UserDataPtr)
 {
+	
 		
 }
 
@@ -90,9 +92,9 @@ void EncoderMotorA_OnInterrupt(void)
 {
 	if(EncoderMotorA_GetVal()){
 	tiks = EncoderRefrenztimer_GetCounterValue(MyFakeEncoderRefrenzTimerPtr);
-	if(aA>=29) aA=0;
-	tikAarray[aA++]= tiks - oldticksA;
+	tiksA= tiks - oldticksA;
 	oldticksA = tiks;
+	if(tiksA<50) tiksA=9999;
 	}
 	stepsA++;
 }
@@ -182,9 +184,9 @@ void EncoderMotorB_OnInterrupt(void)
 {
 	if(EncoderMotorB_GetVal()){
 	tiks = EncoderRefrenztimer_GetCounterValue(MyFakeEncoderRefrenzTimerPtr);
-	if(aB>=29) aB=0;
-	tikAarray[aB++]= tiks - oldticksB;
+	tiksB=tiks - oldticksB;
 	oldticksB = tiks;
+	if(tiksB<50) tiksB=9999;
 	}
 	stepsB++;
 }
@@ -413,8 +415,22 @@ void RegelungReferenztimer_OnCounterRestart(LDD_TUserData *UserDataPtr)
 {
 	int newIntensityEngineA;
 	int newIntensityEngineB;
-	
 	PIDinterruptCounter++;
+	
+	if(sAnswergenon && PIDinterruptCounter>= timeInMs){
+		calcAritmeticMidleA();
+		answerArrayActual[iAns]=tiksA;
+		answerArrayAMidel[iAns++]=tiksA_am;
+		
+		if(iAns>299){
+			sAnswergenon=0;
+			setMotorA_HR(0);
+		}
+		PIDinterruptCounter=0;
+	}
+	
+	
+	
 	
 	if(PIDinterruptCounter>= regelverzoegerung){		
 		if(PIDA_Activated){
@@ -439,8 +455,15 @@ void RegelungReferenztimer_OnCounterRestart(LDD_TUserData *UserDataPtr)
 			 setMotorB_HR(0);
 		}
 	}
+	if(pidEnabled){
+
+		calcAritmeticMidleA();
+		calcAritmeticMidleB();
+		pidDoWork();
 		
-		 PIDinterruptCounter=0;
+	}
+		
+		 //PIDinterruptCounter=0;
 	}
 	
 	if((PIDinterruptCounter>=0)&& frekwentMotortestON){
