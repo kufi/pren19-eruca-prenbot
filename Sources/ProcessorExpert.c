@@ -103,14 +103,27 @@ int main(void)
   
   
   //testMotor();
-  //initRaspberryI2C();
+  RaspberryPtr dataPtr = initRaspberryI2C();
   //testUS();
   //startEncoding();
   //testCalibratePID_MCStyle(5000,5000);
   //generateStepAnswer();
   //testCalibratePID();
-  runnline(100);
+  //runnline(100);
+  
+  byte *raspberryBuffer = getRaspberryBuffer();
   for(;;) {
+	  if(dataPtr->received == 1)
+	  {
+		  byte first = *raspberryBuffer;
+		  byte second = *(raspberryBuffer + 1);
+		  byte third = *(raspberryBuffer + 2);
+		  if(first == second == third == 'A')
+		  {
+			  raspberrySendBlock('R', 1);
+		  }
+	  }
+		  
 	  }
 	  
 

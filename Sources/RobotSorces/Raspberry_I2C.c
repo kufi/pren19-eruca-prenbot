@@ -15,12 +15,23 @@ byte *buffer;
 RaspberryPtr raspberryDataPtr;
 int commandLength;
 
-void initRaspberryI2C()
+RaspberryPtr initRaspberryI2C()
 {
 	commandLength = 3;
 	buffer = (byte *)malloc(sizeof(byte) * commandLength);
 	raspberryPtr = I2cSlave_Init(&raspberryDataPtr);
 	raspberryReceiveBlock();
+	return raspberryDataPtr;
+}
+
+RaspberryPtr getRaspberryDataPtr()
+{
+	return raspberryDataPtr;
+}
+
+byte *getRaspberryBuffer()
+{
+	return buffer;
 }
 
 void raspberryReceiveBlock()

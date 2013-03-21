@@ -14,7 +14,9 @@ typedef struct Raspberry_
 	void (*functionPtr)();
 } Raspberry, *RaspberryPtr;
 
-void initRaspberryI2C();
+RaspberryPtr initRaspberryI2C();
 void raspberryReceiveBlock();
+RaspberryPtr getRaspberryDataPtr();
+byte *getRaspberryBuffer();
 
 #endif /* RASPBERRY_I2C_H_ */
