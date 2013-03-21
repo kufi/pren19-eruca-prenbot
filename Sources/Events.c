@@ -111,74 +111,6 @@ void EncoderMotorA_OnInterrupt(void)
 
 /*
 ** ===================================================================
-**     Event       :  I2CKomunikation_PI_OnSlaveBlockSent (module Events)
-**
-**     Component   :  I2CKomunikation_PI [I2C_LDD]
-**     Description :
-**         This event is called when I2C in slave mode finishes the
-**         transmission of the data successfully. This event is not
-**         available for the MASTER mode and if SlaveSendBlock is
-**         disabled.
-**     Parameters  :
-**         NAME            - DESCRIPTION
-**       * UserDataPtr     - Pointer to the user or
-**                           RTOS specific data. This pointer is passed
-**                           as the parameter of Init method.
-**     Returns     : Nothing
-** ===================================================================
-*/
-void I2CKomunikation_PI_OnSlaveBlockSent(LDD_TUserData *UserDataPtr)
-{
-  /* Write your code here ... */
-}
-
-/*
-** ===================================================================
-**     Event       :  I2CKomunikation_PI_OnSlaveBlockReceived (module Events)
-**
-**     Component   :  I2CKomunikation_PI [I2C_LDD]
-**     Description :
-**         This event is called when I2C in slave mode finishes the
-**         reception of the data successfully. This event is not
-**         available for the MASTER mode and if SlaveReceiveBlock is
-**         disabled.
-**     Parameters  :
-**         NAME            - DESCRIPTION
-**       * UserDataPtr     - Pointer to the user or
-**                           RTOS specific data. This pointer is passed
-**                           as the parameter of Init method.
-**     Returns     : Nothing
-** ===================================================================
-*/
-void I2CKomunikation_PI_OnSlaveBlockReceived(LDD_TUserData *UserDataPtr)
-{
-	RaspberryPtr raspberryPtr = (RaspberryPtr)UserDataPtr;
-	raspberryPtr->received = 1;
-}
-
-/*
-** ===================================================================
-**     Event       :  I2CKomunikation_PI_OnError (module Events)
-**
-**     Component   :  I2CKomunikation_PI [I2C_LDD]
-**     Description :
-**         This event is called when an error (e.g. Arbitration lost)
-**         occurs. The errors can be read with GetError method.
-**     Parameters  :
-**         NAME            - DESCRIPTION
-**       * UserDataPtr     - Pointer to the user or
-**                           RTOS specific data. This pointer is passed
-**                           as the parameter of Init method.
-**     Returns     : Nothing
-** ===================================================================
-*/
-void I2CKomunikation_PI_OnError(LDD_TUserData *UserDataPtr)
-{
-  /* Write your code here ... */
-}
-
-/*
-** ===================================================================
 **     Event       :  EncoderMotorB_OnInterrupt (module Events)
 **
 **     Component   :  EncoderMotorB [ExtInt]
@@ -601,7 +533,9 @@ void I2cSlave_OnSlaveBlockReceived(LDD_TUserData *UserDataPtr)
 */
 void I2cSlave_OnError(LDD_TUserData *UserDataPtr)
 {
-  /* Write your code here ... */
+	RaspberryPtr raspberryPtr = (RaspberryPtr)UserDataPtr;
+	raspberryPtr->received = 1;
+	raspberryPtr->error = 1;
 }
 
 /* END Events */

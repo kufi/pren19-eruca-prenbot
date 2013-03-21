@@ -95,7 +95,12 @@ int main(void)
 {
 	
   /* Write your local variable definition here */
-
+  byte first;
+  byte second;
+  byte third;
+  byte *raspberryBuffer;
+  RaspberryPtr dataPtr;
+	
   /*** Processor Expert internal initialization. DON'T REMOVE THIS CODE!!! ***/
   PE_low_level_init();
   /*** End of Processor Expert internal initialization.                    ***/
@@ -103,7 +108,7 @@ int main(void)
   
   
   //testMotor();
-  RaspberryPtr dataPtr = initRaspberryI2C();
+  dataPtr = initRaspberryI2C();
   //testUS();
   //startEncoding();
   //testCalibratePID_MCStyle(5000,5000);
@@ -111,16 +116,26 @@ int main(void)
   //testCalibratePID();
   //runnline(100);
   
-  byte *raspberryBuffer = getRaspberryBuffer();
+  raspberryBuffer = getRaspberryBuffer();
   for(;;) {
 	  if(dataPtr->received == 1)
 	  {
-		  byte first = *raspberryBuffer;
-		  byte second = *(raspberryBuffer + 1);
-		  byte third = *(raspberryBuffer + 2);
-		  if(first == second == third == 'A')
+		  dataPtr->received = 0;
+		  if(dataPtr->error == 1)
 		  {
-			  raspberrySendBlock('R', 1);
+			  dataPtr->error = 0;
+			  raspberryReceiveBlock();
+			  continue;
+		  }
+		  
+		  first = *raspberryBuffer;
+		  second = *(raspberryBuffer + 1);
+		  third = *(raspberryBuffer + 2);
+		  if(first == 'A' && second == 'A' && third == 'A')
+		  {
+			  byte data[] = {'A','B','C'};
+			  //raspberrySendBlock(&data);
+			  raspberryReceiveBlock();
 		  }
 	  }
 		  

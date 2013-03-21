@@ -19,7 +19,11 @@ RaspberryPtr initRaspberryI2C()
 {
 	commandLength = 3;
 	buffer = (byte *)malloc(sizeof(byte) * commandLength);
-	raspberryPtr = I2cSlave_Init(&raspberryDataPtr);
+	
+	raspberryDataPtr = (RaspberryPtr)malloc(sizeof(Raspberry));
+	raspberryDataPtr->received = 0;
+	raspberryDataPtr->error = 0;
+	raspberryPtr = I2cSlave_Init(raspberryDataPtr);
 	raspberryReceiveBlock();
 	return raspberryDataPtr;
 }
@@ -39,7 +43,7 @@ void raspberryReceiveBlock()
 	I2cSlave_SlaveReceiveBlock(raspberryPtr, buffer, commandLength);
 }
 
-void raspberrySendBlock(LDD_TData *data, LDD_I2C_TSize size)
+void raspberrySendBlock(byte *bytes)
 {
-	I2cSlave_SlaveSendBlock(raspberryPtr, data, size);
+	I2cSlave_SlaveSendBlock(raspberryPtr, bytes, 3);
 }
