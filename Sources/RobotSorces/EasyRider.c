@@ -23,18 +23,36 @@ void startRiding(void){
 		
 	}
 }
-void testCalibratePID_A(int Max,int pFacktor, int iFacktor, int dFacktor, int sollwert, int istwert){
-	initPID(Max,pFacktor,iFacktor,dFacktor);
+void testCalibratePID(){
+	initPID(65535,760,0,7600);
 	initEncoders();
-	regelverzoegerung=5;
-	PIDA_Testsollwert= sollwert;
-	PIDB_Testsollwert= sollwert;
-	PIDA_Testistwert= istwert;
+	regelverzoegerung=10;
+	PIDA_Testsollwert= 30;
+	PIDB_Testsollwert= 30;
 	PIDA_Activated=1;
 	PIDB_Activated=1;
 	
 	
 	
+}
+void runnline(int speedo){
+	int difwert;
+	initPID(65535,760,0,7600);
+    initEncoders();
+	regelverzoegerung=10;
+	PIDA_Testsollwert= speedo;
+	PIDB_Testsollwert= speedo;
+	PIDA_Activated=1;
+	PIDB_Activated=1;
+	for(;;){
+		
+		//PIDB_Testsollwert= (speedo*((int)(stepsA-stepsB)+100))/100;
+		//if(PIDB_Testsollwert<0) PIDB_Testsollwert=0;
+		PIDB_Testsollwert= (speedo*((int)(stepsA-stepsB)+100))/100;
+		PIDA_Testsollwert= (speedo*(-((int)(stepsA-stepsB))+100))/100;
+		if(PIDB_Testsollwert<speedo/2) PIDB_Testsollwert=speedo/2;
+		if(PIDA_Testsollwert<speedo/2) PIDA_Testsollwert=speedo/2;
+	}
 }
 void testCalibratePID_MCStyle(int sr,int sl){
 	initEncoders();

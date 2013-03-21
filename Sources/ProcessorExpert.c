@@ -93,6 +93,7 @@
 int main(void)
 /*lint -restore Enable MISRA rule (6.3) checking. */
 {
+	
   /* Write your local variable definition here */
 
   /*** Processor Expert internal initialization. DON'T REMOVE THIS CODE!!! ***/
@@ -102,12 +103,13 @@ int main(void)
   
   
   //testMotor();
-  //testCalibratePID_A(1000,1,0,0,1000,20);
   //initRaspberryI2C();
   //testUS();
   //startEncoding();
   //testCalibratePID_MCStyle(5000,5000);
-  generateStepAnswer();
+  //generateStepAnswer();
+  //testCalibratePID();
+  runnline(100);
   for(;;) {
 	  }
 	  

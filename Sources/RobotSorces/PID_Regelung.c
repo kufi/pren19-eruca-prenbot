@@ -14,11 +14,11 @@ void initPID(int maximalausschlag_,int p_factor_,int i_factor_,int d_factor_){
 	i_factorA=i_factor_;
 	d_factorA=d_factor_;
 	maximalausschlagA=maximalausschlag_;
-	maximalfehlerA=1000;
-	p_maximalausschlagA=1000;
+	maximalfehlerA=600;
+	p_maximalausschlagA=600;
 	sumirterfehlerA =0;
-	maximalfehelersummeA=500;
-	i_maximalausschlagA =500;
+	maximalfehelersummeA=6000;
+	i_maximalausschlagA =6000;
 	lezterFunktionswertA=0;
 	i_resultatA=0;
 	
@@ -26,11 +26,11 @@ void initPID(int maximalausschlag_,int p_factor_,int i_factor_,int d_factor_){
     i_factorB=i_factor_;
     d_factorB=d_factor_;
 	maximalausschlagB=maximalausschlag_;
-	maximalfehlerB=1000;
-	p_maximalausschlagB=1000;
+	maximalfehlerB=600;
+	p_maximalausschlagB=600;
 	sumirterfehlerB =0;
-	maximalfehelersummeB=500;
-	i_maximalausschlagB =500;
+	maximalfehelersummeB=6000;
+	i_maximalausschlagB =6000;
 	lezterFunktionswertB=0;
 	i_resultatB=0;
 }
@@ -38,10 +38,11 @@ void initPID(int maximalausschlag_,int p_factor_,int i_factor_,int d_factor_){
 int pidA(int sollwert,int istwert){
 	int temp;
 	int ret;
-	int speed;
 	
-	speed=(100000/istwert)-10;
-	errorA = sollwert - speed;
+	
+	speedA=(100000/istwert)-10;
+	if(speedA>1700) speedA=0;
+	errorA = sollwert - speedA;
 	
 	//Calculate Pterm and limit error overflow
 	if (errorA > maximalfehlerA){
@@ -67,11 +68,12 @@ int pidA(int sollwert,int istwert){
 	  else{
 		  sumirterfehlerA = temp;
 	      i_resultatA = i_factorA * temp;
+	      
 	  }
 	  // Calculate Dterm
-	    d_resultatA = d_factorA * (lezterFunktionswertA - istwert);
+	    d_resultatA = d_factorA * (lezterFunktionswertA - speedA);
 
-	    lezterFunktionswertA = istwert;
+	    lezterFunktionswertA = speedA;
 
 	    ret = p_resultatA+i_resultatA+d_resultatA;
 	    
@@ -81,7 +83,7 @@ int pidA(int sollwert,int istwert){
 	    else if(ret < -maximalausschlagA){
 	      ret = -maximalausschlagA;
 	    }
-	    return (ret)/10;
+	    return ret/200;
 	 
 }
 
@@ -89,7 +91,10 @@ int pidB(int sollwert,int istwert){
 	int temp;
 	int ret;
 	
-	errorB = sollwert - istwert;
+	
+	speedB=(100000/istwert)-10;
+	if(speedB>1700) speedB=0;
+	errorB = sollwert - speedB;
 	
 	//Calculate Pterm and limit error overflow
 	if (errorB > maximalfehlerB){
@@ -115,11 +120,12 @@ int pidB(int sollwert,int istwert){
 	  else{
 		  sumirterfehlerB = temp;
 	      i_resultatB = i_factorB * temp;
+	      
 	  }
 	  // Calculate Dterm
-	    d_resultatB = d_factorB * (lezterFunktionswertB - istwert);
+	    d_resultatB = d_factorB * (lezterFunktionswertB - speedB);
 
-	    lezterFunktionswertB = istwert;
+	    lezterFunktionswertB = speedB;
 
 	    ret = p_resultatB+i_resultatB+d_resultatB;
 	    
@@ -129,6 +135,6 @@ int pidB(int sollwert,int istwert){
 	    else if(ret < -maximalausschlagB){
 	      ret = -maximalausschlagB;
 	    }
-	    return (ret)/10;
+	    return ret/200;
 }
 

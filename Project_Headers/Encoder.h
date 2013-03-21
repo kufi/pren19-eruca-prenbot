@@ -11,6 +11,9 @@
 
 #define UMPROSTEP 1
 
+int tiksAerror;
+int tiksBerror;
+
 int aA;
 int aB;
 int eA;

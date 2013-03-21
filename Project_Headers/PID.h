@@ -14,6 +14,8 @@ static int PIDinterruptCounter;
 
 //Werte für PIDA
 
+int speedA;
+int speedB;
 int PIDA_Activated;
 int PIDA_Testresault;
 int PIDA_Testsollwert;

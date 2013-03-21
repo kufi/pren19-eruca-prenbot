@@ -73,7 +73,17 @@ void Cpu_OnNMIINT(void)
 void EncoderRefrenztimer_OnCounterRestart(LDD_TUserData *UserDataPtr)
 {
 	
-		
+	if(tiksA==tiksAerror){
+		tiksA=9999;
+	}else{
+		tiksAerror=tiksA;
+	}
+	if(tiksB==tiksBerror){
+		tiksB=9999;
+	}else{
+		tiksBerror=tiksB;
+	}
+	
 }
 
 /*
@@ -434,36 +444,37 @@ void RegelungReferenztimer_OnCounterRestart(LDD_TUserData *UserDataPtr)
 	
 	if(PIDinterruptCounter>= regelverzoegerung){		
 		if(PIDA_Activated){
-      calcAritmeticMidleA();
-	  PIDA_Testresault =pidA(PIDA_Testsollwert, tiksA_am);
-	  newIntensityEngineA = intensityEngineA_HR - (PIDA_Testresault);
+	  PIDA_Testresault =pidA(PIDA_Testsollwert, tiksA);
+	  newIntensityEngineA = intensityEngineA_HR + PIDA_Testresault;
 	  if(newIntensityEngineA>=0){
 		  setMotorA_HR(newIntensityEngineA);
 	  }
 	  if(newIntensityEngineA<0){
 	  		  setMotorA_HR(0);
 	  	  }
+	  PIDinterruptCounter=0;
 	 }
 	if(PIDB_Activated){
-		calcAritmeticMidleB();
-		PIDB_Testresault =pidB(PIDB_Testsollwert, tiksB_am);
-		newIntensityEngineB = intensityEngineB_HR - (PIDB_Testresault);
+		PIDB_Testresault =pidB(PIDB_Testsollwert, tiksB);
+		newIntensityEngineB = intensityEngineB_HR + PIDB_Testresault;
 		if(newIntensityEngineB>=0){
 		setMotorB_HR(newIntensityEngineB);
 		}
 		if(newIntensityEngineB<0){
 			 setMotorB_HR(0);
 		}
+		PIDinterruptCounter=0;
 	}
 	if(pidEnabled){
 
 		calcAritmeticMidleA();
 		calcAritmeticMidleB();
 		pidDoWork();
+		PIDinterruptCounter=0;
 		
 	}
 		
-		 //PIDinterruptCounter=0;
+		 
 	}
 	
 	if((PIDinterruptCounter>=0)&& frekwentMotortestON){

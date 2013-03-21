@@ -15,6 +15,8 @@ int answerArrayActual[300];
 int iAns;
 int timeInMs;
 
+
+void runnline(int speedo);
 void startRiding(void);
 void testCalibratePID(void);
 void testMotor(void);
