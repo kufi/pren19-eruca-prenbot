@@ -16,7 +16,6 @@ struct Raspberry_
 
 typedef struct Raspberry_ Raspberry;
 typedef Raspberry *RaspberryPtr;
-
 RaspberryPtr initRaspberryI2C();
 void raspberryReceiveBlock();
 void raspberrySendBlock(byte *bytes);

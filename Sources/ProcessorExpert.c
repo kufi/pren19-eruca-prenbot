@@ -115,7 +115,6 @@ int main(void)
   //generateStepAnswer();
   //testCalibratePID();
   //runnline(100);
-  
   raspberryBuffer = getRaspberryBuffer();
   for(;;) {
 	  if(dataPtr->received == 1)
