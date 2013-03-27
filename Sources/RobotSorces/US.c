@@ -73,6 +73,7 @@ void freqwentMesuring(void){
 void initUS(void){
 	freqwentUSactive=0;
 	actifUScomponent=0;
+	distanceFront=distanceHeck=distanceRechtsFront=distanceRechtsHeck=900;
 }
 
 

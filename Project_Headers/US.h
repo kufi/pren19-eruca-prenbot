@@ -8,16 +8,16 @@
 #ifndef US_H_
 #define US_H_
 
-#define DEVIDER 7642
-#define APTASTRATE 3
+#define DEVIDER  3821 // 7642 bei 50ms ov time
+#define APTASTRATE 0
 #define DISTANCEOFFSET 60
 
 #include "Cpu.h"
 
 uint32_t distanceFront;
-uint32_t distanceHeck;
-uint32_t distanceRechtsFront;
-uint32_t distanceRechtsHeck;
+uint32_t  distanceHeck;
+uint32_t  distanceRechtsFront;
+uint32_t  distanceRechtsHeck;
 
 int bussy;
 int actifUScomponent;

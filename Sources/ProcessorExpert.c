@@ -95,11 +95,8 @@ int main(void)
 {
 	
   /* Write your local variable definition here */
-  byte first;
-  byte second;
-  byte third;
-  byte *raspberryBuffer;
-  RaspberryPtr dataPtr;
+ char comandfromPi;
+ int  comandParameter;
 	
   /*** Processor Expert internal initialization. DON'T REMOVE THIS CODE!!! ***/
   PE_low_level_init();
@@ -108,38 +105,26 @@ int main(void)
   
   
   //testMotor();
-  dataPtr = initRaspberryI2C();
   //testUS();
   //startEncoding();
   //testCalibratePID_MCStyle(5000,5000);
   //generateStepAnswer();
-  //testCalibratePID();
-  //runnline(100);
-  raspberryBuffer = getRaspberryBuffer();
-  for(;;) {
-	  if(dataPtr->received == 1)
-	  {
-		  dataPtr->received = 0;
-		  if(dataPtr->error == 1)
-		  {
-			  dataPtr->error = 0;
-			  raspberryReceiveBlock();
-			  continue;
-		  }
-		  
-		  first = *raspberryBuffer;
-		  second = *(raspberryBuffer + 1);
-		  third = *(raspberryBuffer + 2);
-		  if(first == 'A' && second == 'A' && third == 'A')
-		  {
-			  byte data[] = {'A','B','C'};
-			  //raspberrySendBlock(&data);
-			  raspberryReceiveBlock();
-		  }
+  //testCalibratePID(20);
+  
+  //stopCurve(30,'R',170);
+  
+  (void)initRaspberryI2C();
+  folowWall(40,200,25);
+  //stopCurve(30,'L',170);
+  //folowWall(20,200,30);
+  //stopCurve(30,'L',170);
+  //folowWall(20,200,30);
+  //folowWall(20,200,30);
+  for(;;){
+	  if(reciveFromPi(&comandfromPi,&comandParameter)&&(comandfromPi=='R')){
+		  remoteControll();
 	  }
-		  
-	  }
-	  
+  }
 
   
  

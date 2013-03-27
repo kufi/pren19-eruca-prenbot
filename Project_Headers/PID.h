@@ -10,7 +10,7 @@
 //Werte allgemein
 
 int regelverzoegerung;
-static int PIDinterruptCounter;
+int PIDinterruptCounter;
 
 //Werte für PIDA
 

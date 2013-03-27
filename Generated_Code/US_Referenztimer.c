@@ -6,7 +6,7 @@
 **     Component   : TimerUnit_LDD
 **     Version     : Component 01.137, Driver 01.08, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2013-03-15, 11:32, # CodeGen: 11
+**     Date/Time   : 2013-03-25, 18:17, # CodeGen: 13
 **     Abstract    :
 **          This TimerUnit component provides a low level API for unified hardware access across
 **          various timer devices using the Prescaler-Counter-Compare-Capture timer structure.
@@ -18,19 +18,25 @@
 **          Counter width                                  : 16 bits
 **          Value type                                     : Optimal
 **          Input clock source                             : Internal
-**            Counter frequency                            : 1.31072 MHz
+**            Counter frequency                            : 655.36 kHz
 **          Counter restart                                : On-overrun
-**            Overrun period                               : 50 ms
-**            Interrupt                                    : Enabled
-**              Interrupt                                  : INT_TPM2
-**              Interrupt priority                         : medium priority
-**          Channel list                                   : 0
+**            Overrun period                               : Auto select
+**            Interrupt                                    : Disabled
+**          Channel list                                   : 1
+**            Channel 0                                    : 
+**              Mode                                       : Compare
+**                Compare                                  : TPM2_C0V
+**                Offset                                   : 0 timer-ticks
+**                Output on compare                        : Disconnect
+**                Interrupt                                : Enabled
+**                  Interrupt                              : INT_TPM2
+**                  Interrupt priority                     : medium priority
 **          Initialization                                 : 
 **            Enabled in init. code                        : yes
 **            Auto initialization                          : yes
 **            Event mask                                   : 
-**              OnCounterRestart                           : Enabled
-**              OnChannel0                                 : Disabled
+**              OnCounterRestart                           : Disabled
+**              OnChannel0                                 : Enabled
 **              OnChannel1                                 : Disabled
 **              OnChannel2                                 : Disabled
 **              OnChannel3                                 : Disabled
@@ -61,6 +67,9 @@
 /* {Default RTOS Adapter} No RTOS includes */
 #include "IO_Map.h"
 
+/* List of channels used by component */
+static const uint8_t ChannelDevice[US_Referenztimer_NUMBER_OF_CHANNELS] = {0x00U};
+
 
 typedef struct {
   LDD_TEventMask EnEvents;             /* Enable/Disable events mask */
@@ -74,7 +83,8 @@ static US_Referenztimer_TDeviceData DeviceDataPrv__DEFAULT_RTOS_ALLOC;
 /* {Default RTOS Adapter} Global variable used for passing a parameter into ISR */
 static US_Referenztimer_TDeviceDataPtr INT_TPM2__DEFAULT_RTOS_ISRPARAM;
 
-#define AVAILABLE_EVENTS_MASK (LDD_TEventMask)(LDD_TIMERUNIT_ON_COUNTER_RESTART)
+#define AVAILABLE_EVENTS_MASK (LDD_TEventMask)(LDD_TIMERUNIT_ON_CHANNEL_0)
+#define LAST_CHANNEL 0x00U
 
 /* Internal method prototypes */
 /*
@@ -124,7 +134,11 @@ LDD_TDeviceData* US_Referenztimer_Init(LDD_TUserData *UserDataPtr)
   TPM2_C1SC = 0x00U;                   /* Clear channel status and control register */
   /* TPM2_MOD: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,MOD=0xFFFF */
   TPM2_MOD = TPM_MOD_MOD(0xFFFF);      /* Set up modulo register */
-  DeviceDataPrv->EnEvents = 0x0100u;   /* Enable selected events */
+  /* TPM2_C0SC: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,CHF=0,CHIE=1,MSB=0,MSA=1,ELSB=0,ELSA=0,??=0,DMA=0 */
+  TPM2_C0SC = (TPM_CnSC_CHIE_MASK | TPM_CnSC_MSA_MASK); /* Set up channel status and control register */
+  /* TPM2_C0V: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,VAL=0 */
+  TPM2_C0V = 0x00U;                    /* Set up channel value register */
+  DeviceDataPrv->EnEvents = 0x01u;     /* Enable selected events */
   /* NVIC_IPR4: PRI_19=0x80 */
   NVIC_IPR4 = (uint32_t)((NVIC_IPR4 & (uint32_t)~(uint32_t)(
                NVIC_IP_PRI_19(0x7F)
@@ -133,8 +147,8 @@ LDD_TDeviceData* US_Referenztimer_Init(LDD_TUserData *UserDataPtr)
               ));                                                  
   /* NVIC_ISER: SETENA|=0x00080000 */
   NVIC_ISER |= NVIC_ISER_SETENA(0x00080000);                                                   
-  /* TPM2_SC: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,DMA=0,TOF=0,TOIE=1,CPWMS=0,CMOD=1,PS=4 */
-  TPM2_SC = (TPM_SC_TOIE_MASK | TPM_SC_CMOD(0x01) | TPM_SC_PS(0x04)); /* Set up status and control register */
+  /* TPM2_SC: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,DMA=0,TOF=0,TOIE=0,CPWMS=0,CMOD=1,PS=5 */
+  TPM2_SC = (TPM_SC_CMOD(0x01) | TPM_SC_PS(0x05)); /* Set up status and control register */
   /* Registration of the device structure */
   PE_LDD_RegisterDeviceStructure(PE_LDD_COMPONENT_US_Referenztimer_ID,DeviceDataPrv);
   return ((LDD_TDeviceData *)DeviceDataPrv); /* Return pointer to the device data structure */
@@ -236,13 +250,13 @@ PE_ISR(US_Referenztimer_Interrupt)
 
   LDD_TEventMask State = 0U;
 
-  if ((TPM_PDD_GetOverflowInterruptFlag(TPM2_BASE_PTR)) != 0U) { /* Is the overflow interrupt flag pending? */
-    State |= LDD_TIMERUNIT_ON_COUNTER_RESTART; /* and set mask */
+  if ((TPM_PDD_GetChannelInterruptFlag(TPM2_BASE_PTR, ChannelDevice[0])) != 0U) { /* Is the channel interrupt flag pending? */
+    State |= LDD_TIMERUNIT_ON_CHANNEL_0; /* and set mask */
   }
   State &= DeviceDataPrv->EnEvents;    /* Handle only enabled interrupts */
-  if (State & LDD_TIMERUNIT_ON_COUNTER_RESTART) { /* Is the overflow interrupt flag pending? */
-    TPM_PDD_ClearOverflowInterruptFlag(TPM2_BASE_PTR); /* Clear flag */
-    US_Referenztimer_OnCounterRestart(DeviceDataPrv->UserDataPtr); /* Invoke OnCounterRestart event */
+  if (State & LDD_TIMERUNIT_ON_CHANNEL_0) { /* Is the channel 0 interrupt flag pending? */
+    TPM_PDD_ClearChannelInterruptFlag(TPM2_BASE_PTR, ChannelDevice[0]); /* Clear flag */
+    US_Referenztimer_OnChannel0(DeviceDataPrv->UserDataPtr); /* Invoke OnChannel0 event */
   }
 }
 

@@ -36,9 +36,9 @@
         <Line>Project_Settings\Linker_Files\ProcessorExpert.ld</Line>
         <Line>Generated_Code\Vectors.c</Line>
       </GenExtraFiles>
-      <XtraAge1>1114809619</XtraAge1>
+      <XtraAge1>1114983717</XtraAge1>
       <XtraAge2>1114594326</XtraAge2>
-      <XtraAge4>1114809619</XtraAge4>
+      <XtraAge4>1114983717</XtraAge4>
       <GenExtraFileType4>4</GenExtraFileType4>
       <GenExtraFileType3>4</GenExtraFileType3>
       <GenExtraFileType2>4</GenExtraFileType2>
@@ -58,7 +58,7 @@
         <Line>I2C_Kompass_OnMasterBlockSent</Line>
         <Line>I2C_Kompass_OnMasterBlockReceived</Line>
         <Line>I2C_Kompass_OnError</Line>
-        <Line>US_Referenztimer_OnCounterRestart</Line>
+        <Line>US_Referenztimer_OnChannel0</Line>
         <Line>RegelungReferenztimer_OnCounterRestart</Line>
         <Line>EncoderMotorB_OnInterrupt</Line>
         <Line>EncoderMotorA_OnInterrupt</Line>
@@ -162,7 +162,7 @@
     </GenFiles>
     <SignalListFile>Documentation\ProcessorExpert_SIGNALS.txt</SignalListFile>
     <DestinationCompiler>GNUC</DestinationCompiler>
-    <ProjectModificationStamp>17</ProjectModificationStamp>
+    <ProjectModificationStamp>24</ProjectModificationStamp>
   </Options>
   <CpuID_2>
     <Generated>true</Generated>
@@ -242,8 +242,8 @@
     <GenComponentVersion>01.011</GenComponentVersion>
     <GenDriverVersion>01.06</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1114809619</HeaderAge>
-    <CodeAge>1114809619</CodeAge>
+    <HeaderAge>1114983717</HeaderAge>
+    <CodeAge>1114983717</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>33</GenNumMethods>
     <GetDriverState>false</GetDriverState>
@@ -2353,8 +2353,8 @@
     <GenComponentVersion>01.137</GenComponentVersion>
     <GenDriverVersion>01.08</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1114594326</HeaderAge>
-    <CodeAge>1114594326</CodeAge>
+    <HeaderAge>1115263553</HeaderAge>
+    <CodeAge>1115263553</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>22</GenNumMethods>
     <GetDriverState>false</GetDriverState>
@@ -2380,10 +2380,10 @@
     <Deinit>true</Deinit>
     <Init>true</Init>
     <GenNumEvents>9</GenNumEvents>
-    <OnCounterRestart_Selected>3</OnCounterRestart_Selected>
+    <OnCounterRestart_Selected>0</OnCounterRestart_Selected>
     <OnCounterRestart_Name>US_Referenztimer_OnCounterRestart</OnCounterRestart_Name>
     <OnCounterRestart_Priority>interrupts disabled</OnCounterRestart_Priority>
-    <OnChannel0_Selected>0</OnChannel0_Selected>
+    <OnChannel0_Selected>3</OnChannel0_Selected>
     <OnChannel0_Name>US_Referenztimer_OnChannel0</OnChannel0_Name>
     <OnChannel0_Priority>interrupts disabled</OnChannel0_Priority>
     <OnChannel1_Selected>0</OnChannel1_Selected>
@@ -2415,71 +2415,71 @@
       <MethodPos0>Init</MethodPos0>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>100</LineBeg>
-      <LineEnd>126</LineEnd>
+      <LineBeg>107</LineBeg>
+      <LineEnd>133</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos1>Deinit</MethodPos1>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>127</LineBeg>
-      <LineEnd>142</LineEnd>
+      <LineBeg>134</LineBeg>
+      <LineEnd>149</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos2>ResetCounter</MethodPos2>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>143</LineBeg>
-      <LineEnd>165</LineEnd>
+      <LineBeg>150</LineBeg>
+      <LineEnd>172</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos3>GetCounterValue</MethodPos3>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>166</LineBeg>
-      <LineEnd>184</LineEnd>
+      <LineBeg>173</LineBeg>
+      <LineEnd>191</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos4>Interrupt</MethodPos4>
       <MethodType>internal_method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>185</LineBeg>
-      <LineEnd>197</LineEnd>
+      <LineBeg>192</LineBeg>
+      <LineEnd>204</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos5>Init</MethodPos5>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>75</LineBeg>
-      <LineEnd>141</LineEnd>
+      <LineBeg>85</LineBeg>
+      <LineEnd>155</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos6>Deinit</MethodPos6>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>142</LineBeg>
-      <LineEnd>169</LineEnd>
+      <LineBeg>156</LineBeg>
+      <LineEnd>183</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos7>ResetCounter</MethodPos7>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>170</LineBeg>
-      <LineEnd>197</LineEnd>
+      <LineBeg>184</LineBeg>
+      <LineEnd>211</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos8>GetCounterValue</MethodPos8>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>198</LineBeg>
-      <LineEnd>220</LineEnd>
+      <LineBeg>212</LineBeg>
+      <LineEnd>234</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos9>Interrupt</MethodPos9>
       <MethodType>internal_method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>221</LineBeg>
-      <LineEnd>247</LineEnd>
+      <LineBeg>235</LineBeg>
+      <LineEnd>261</LineEnd>
     </MethodPos>
     <GenExtraFilesCount>0</GenExtraFilesCount>
   </ComponentID_31>
@@ -2489,8 +2489,8 @@
     <GenComponentVersion>01.011</GenComponentVersion>
     <GenDriverVersion>01.06</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1114809619</HeaderAge>
-    <CodeAge>1114809619</CodeAge>
+    <HeaderAge>1114983717</HeaderAge>
+    <CodeAge>1114983717</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>33</GenNumMethods>
     <GetDriverState>false</GetDriverState>
@@ -4735,136 +4735,137 @@
     <SrcFile108>Drivers\Common\I2C_LDDSelectSlaveDevice.inc=1076451655</SrcFile108>
     <SrcFile109>Drivers\Common\I2C_LDDMasterReceiveBlock.inc=1076451655</SrcFile109>
     <SrcFile110>Drivers\Common\I2C_LDDMasterSendBlock.inc=1076451655</SrcFile110>
-    <SrcFile111>Drivers\Common\TimerUnit_LDDResetCounter.inc=1076451655</SrcFile111>
-    <SrcFile112>Drivers\Common\GeneralSetDir.inc=1076451655</SrcFile112>
-    <SrcFile113>Drivers\Common\MultiBitIOSetDir.inc=1076451655</SrcFile113>
-    <SrcFile114>Drivers\Common\BitsIO_LDDSetDir.inc=1086234091</SrcFile114>
-    <SrcFile115>Drivers\Common\OneBitIOGetVal.inc=1076451655</SrcFile115>
-    <SrcFile116>Drivers\Common\OneBitIOSettings.inc=1076451655</SrcFile116>
-    <SrcFile117>Drivers\Common\OneBitIOAbstract.inc=1076451655</SrcFile117>
-    <SrcFile118>Drivers\Kinetis\BitIO.drv=1093838706</SrcFile118>
-    <SrcFile119>Drivers\BitIO.src=1093931556</SrcFile119>
-    <SrcFile120>Drivers\Common\BitIO_LDDGetVal.inc=1091405895</SrcFile120>
-    <SrcFile121>Drivers\Common\BitIO_LDDInit.inc=1086234091</SrcFile121>
-    <SrcFile122>Drivers\Common\BitIO_LDDSettings.inc=1086234091</SrcFile122>
-    <SrcFile123>Drivers\Common\BitIO_LDDAbstract.inc=1086234091</SrcFile123>
-    <SrcFile124>Drivers\Kinetis\BitIO_LDD.drv=1093561129</SrcFile124>
-    <SrcFile125>Drivers\BitIO_LDD.src=1090927447</SrcFile125>
-    <SrcFile126>Drivers\Common\GeneralNegBit.inc=1076451655</SrcFile126>
-    <SrcFile127>Drivers\Common\MultiBitIONegBit.inc=1076451655</SrcFile127>
-    <SrcFile128>Drivers\Common\GeneralClrBit.inc=1076451655</SrcFile128>
-    <SrcFile129>Drivers\Common\MultiBitIOClrBit.inc=1076451655</SrcFile129>
-    <SrcFile130>Drivers\Common\GeneralSetBit.inc=1076451655</SrcFile130>
-    <SrcFile131>Drivers\Common\MultiBitIOSetBit.inc=1076451655</SrcFile131>
-    <SrcFile132>Drivers\Common\GeneralPutBit.inc=1076451655</SrcFile132>
-    <SrcFile133>Drivers\Common\MultiBitIOPutBit.inc=1076451655</SrcFile133>
-    <SrcFile134>Drivers\Common\GeneralGetBit.inc=1076451655</SrcFile134>
-    <SrcFile135>Drivers\Common\MultiBitIOGetBit.inc=1076451655</SrcFile135>
-    <SrcFile136>Drivers\Common\GeneralPutVal.inc=1076451655</SrcFile136>
-    <SrcFile137>Drivers\Common\MultiBitIOPutVal.inc=1076451655</SrcFile137>
-    <SrcFile138>Drivers\Common\GeneralGetVal.inc=1076451655</SrcFile138>
-    <SrcFile139>Drivers\Common\MultiBitIOGetVal.inc=1076451655</SrcFile139>
-    <SrcFile140>Drivers\Common\GeneralGetDir.inc=1076451655</SrcFile140>
-    <SrcFile141>Drivers\Common\MultiBitIOGetDir.inc=1076451655</SrcFile141>
-    <SrcFile142>Drivers\Common\UsedPins.inc=1076451655</SrcFile142>
-    <SrcFile143>Drivers\Common\MultiBitIOSettings.inc=1076451655</SrcFile143>
-    <SrcFile144>Drivers\Common\MultiBitIOAbstract.inc=1076451655</SrcFile144>
-    <SrcFile145>Drivers\Common\symbolsNBitsIOtoBitsIO.prg=1093561129</SrcFile145>
-    <SrcFile146>Drivers\Kinetis\BitsIO.drv=1093838706</SrcFile146>
-    <SrcFile147>Drivers\BitsIO.src=1093931556</SrcFile147>
-    <SrcFile148>Drivers\Common\BitsIO_LDDNegBit.inc=1086234091</SrcFile148>
-    <SrcFile149>Drivers\Common\BitsIO_LDDClrBit.inc=1086234091</SrcFile149>
-    <SrcFile150>Drivers\Common\BitsIO_LDDSetBit.inc=1086234091</SrcFile150>
-    <SrcFile151>Drivers\Common\BitsIO_LDDPutBit.inc=1091847053</SrcFile151>
-    <SrcFile152>Drivers\Common\BitsIO_LDDGetBit.inc=1093905780</SrcFile152>
-    <SrcFile153>Drivers\Common\BitsIO_LDDPutVal.inc=1091847053</SrcFile153>
-    <SrcFile154>Drivers\Common\BitsIO_LDDGetVal.inc=1091847053</SrcFile154>
-    <SrcFile155>Drivers\Common\BitsIO_LDDGetDir.inc=1086234091</SrcFile155>
-    <SrcFile156>Drivers\Common\BitsIO_LDDInit.inc=1093905780</SrcFile156>
-    <SrcFile157>Drivers\Common\CopyrightUserC.inc=1076451655</SrcFile157>
-    <SrcFile158>Drivers\Common\BitsIO_LDDSettings.inc=1091466131</SrcFile158>
-    <SrcFile159>Drivers\Common\BitsIO_LDDAbstract.inc=1086234091</SrcFile159>
-    <SrcFile160>Drivers\Common\LDDSupport\GPIO\GPIO.inc=1091466131</SrcFile160>
-    <SrcFile161>Drivers\Common\LDDSupport\GPIO\PDD_MacroNames.inc=1091466131</SrcFile161>
-    <SrcFile162>Drivers\Kinetis\BitsIO_LDD.drv=1093561129</SrcFile162>
-    <SrcFile163>Drivers\BitsIO_LDD.src=1086234091</SrcFile163>
-    <SrcFile164>Drivers\Common\ExternalInterruptOnInterrupt.inc=1076451655</SrcFile164>
-    <SrcFile165>Drivers\Common\ExternalInterruptGetVal.inc=1076466278</SrcFile165>
-    <SrcFile166>Drivers\Common\ExternalInterruptDisable.inc=1076451655</SrcFile166>
-    <SrcFile167>Drivers\Common\GeneralParametersNone.inc=1076451655</SrcFile167>
-    <SrcFile168>Drivers\Common\ExternalInterruptEnable.inc=1076451655</SrcFile168>
-    <SrcFile169>Drivers\Common\UsedPin.inc=1076451655</SrcFile169>
-    <SrcFile170>Drivers\Common\ExternalInterruptSettings.inc=1076451655</SrcFile170>
-    <SrcFile171>Drivers\Common\ExternalInterruptAbstract.inc=1076451655</SrcFile171>
-    <SrcFile172>Drivers\Kinetis\ExternalInterrupt.drv=1093838706</SrcFile172>
-    <SrcFile173>Drivers\ExtInt.src=1093931556</SrcFile173>
-    <SrcFile174>Drivers\Common\CommonRegInitialization_NotRst.prg=1076451655</SrcFile174>
-    <SrcFile175>Drivers\Common\CommonInitialization_NotRst.prg=1076451655</SrcFile175>
-    <SrcFile176>Drivers\Common\InitReg32Block.prg=1076451655</SrcFile176>
-    <SrcFile177>Drivers\Common\InitReg32.prg=1076451655</SrcFile177>
-    <SrcFile178>Drivers\Common\ExtInt_LDDOnInterrupt.inc=1086234091</SrcFile178>
-    <SrcFile179>Drivers\Common\ExtInt_LDDGetVal.inc=1086234091</SrcFile179>
-    <SrcFile180>Drivers\Common\ExtInt_LDDDisable.inc=1086234091</SrcFile180>
-    <SrcFile181>Drivers\Common\ExtInt_LDDEnable.inc=1086234091</SrcFile181>
-    <SrcFile182>Drivers\Common\ExtInt_LDDInit.inc=1086234091</SrcFile182>
-    <SrcFile183>Drivers\Common\ExtInt_LDDSettings.inc=1087269290</SrcFile183>
-    <SrcFile184>Drivers\Common\ExtInt_LDDAbstract.inc=1086234091</SrcFile184>
-    <SrcFile185>Drivers\Common\Utils\Misc.inc=1089756299</SrcFile185>
-    <SrcFile186>Drivers\Kinetis\ExtInt_LDD.drv=1093952229</SrcFile186>
-    <SrcFile187>Drivers\ExtInt_LDD.src=1090927447</SrcFile187>
-    <SrcFile188>Drivers\Common\SetReg32.prg=1092125739</SrcFile188>
-    <SrcFile189>Drivers\Common\TimerUnit_LDDOnCounterRestart.inc=1076451655</SrcFile189>
-    <SrcFile190>Drivers\Common\TimerUnit_LDDGetCounterValue.inc=1093952229</SrcFile190>
-    <SrcFile191>Drivers\Common\TimerUnit_LDDDeinit.inc=1076451655</SrcFile191>
-    <SrcFile192>Drivers\Common\TimerUnit_LDDInit.inc=1076451655</SrcFile192>
-    <SrcFile193>Drivers\Common\TimerUnit_LDDSettings.inc=1090585412</SrcFile193>
-    <SrcFile194>Drivers\Common\TimerUnit_LDDAbstract.inc=1076451655</SrcFile194>
-    <SrcFile195>Drivers\Kinetis\TimerUnit_LDD.drv=1093838706</SrcFile195>
-    <SrcFile196>Drivers\TimerUnit_LDD.src=1087269290</SrcFile196>
-    <SrcFile197>Drivers\Kinetis\InitIntRequest.prg=1093478992</SrcFile197>
-    <SrcFile198>Drivers\Kinetis\InitIntPriority.prg=1093478992</SrcFile198>
-    <SrcFile199>Drivers\Kinetis\InitInterrupt.prg=1076451655</SrcFile199>
-    <SrcFile200>Drivers\VAR\InitInterrupt.prg=1086871955</SrcFile200>
-    <SrcFile201>Drivers\Kinetis\InitPin.prg=1078165262</SrcFile201>
-    <SrcFile202>Drivers\VAR\InitPin.prg=1087193876</SrcFile202>
-    <SrcFile203>Drivers\Common\GenReg8BitsInitInfo.prg=1090943028</SrcFile203>
-    <SrcFile204>Drivers\Common\SetReg8.prg=1092125739</SrcFile204>
-    <SrcFile205>Drivers\Kinetis\PExRegMap_MKL25Z4.prg=1092125739</SrcFile205>
-    <SrcFile206>Drivers\Common\SetRegBitMask.prg=1092125739</SrcFile206>
-    <SrcFile207>Drivers\Common\GenReg32BitsInitInfo.prg=1090943028</SrcFile207>
-    <SrcFile208>Drivers\Common\SetRegBits32.prg=1092125739</SrcFile208>
-    <SrcFile209>Drivers\Kinetis\InitClockGate.prg=1093478992</SrcFile209>
-    <SrcFile210>Drivers\VAR\InitClockGate.prg=1088634565</SrcFile210>
-    <SrcFile211>Drivers\Common\DefineISR.prg=1090473516</SrcFile211>
-    <SrcFile212>Drivers\Common\Header.C=1076451655</SrcFile212>
-    <SrcFile213>Drivers\Common\I2C_LDDOnError.inc=1076451655</SrcFile213>
-    <SrcFile214>Drivers\Common\I2C_LDDOnSlaveBlockReceived.inc=1076451655</SrcFile214>
-    <SrcFile215>Drivers\Common\GeneralEvent.inc=1076451655</SrcFile215>
-    <SrcFile216>Drivers\Common\I2C_LDDOnSlaveBlockSent.inc=1076451655</SrcFile216>
-    <SrcFile217>Drivers\Common\Header.end=1076451655</SrcFile217>
-    <SrcFile218>Drivers\Common\GeneralInternalDescription.prg=1076451655</SrcFile218>
-    <SrcFile219>Drivers\Common\GeneralInternal.inc=1076451655</SrcFile219>
-    <SrcFile220>Drivers\Common\CreateCodeSection.prg=1089569592</SrcFile220>
-    <SrcFile221>Drivers\Common\DeclareISR.prg=1090473516</SrcFile221>
-    <SrcFile222>Drivers\Common\CreateIntSection.prg=1089569592</SrcFile222>
-    <SrcFile223>Drivers\Common\I2C_LDDGetError.inc=1076451655</SrcFile223>
-    <SrcFile224>Drivers\Common\I2C_LDDSlaveReceiveBlock.inc=1076451655</SrcFile224>
-    <SrcFile225>Drivers\Common\I2C_LDDSlaveSendBlock.inc=1076451655</SrcFile225>
-    <SrcFile226>Drivers\Common\I2C_LDDEnable.inc=1076451655</SrcFile226>
-    <SrcFile227>Drivers\Common\GeneralReturnNothing.inc=1076451655</SrcFile227>
-    <SrcFile228>Drivers\Common\I2C_LDDDeinit.inc=1076451655</SrcFile228>
-    <SrcFile229>Drivers\Common\GeneralDamage.inc=1076451655</SrcFile229>
-    <SrcFile230>Drivers\Common\GeneralParameters.inc=1076451655</SrcFile230>
-    <SrcFile231>Drivers\Common\GeneralMethod.inc=1076451655</SrcFile231>
-    <SrcFile232>Drivers\Common\I2C_LDDInit.inc=1076451655</SrcFile232>
-    <SrcFile233>Drivers\Common\HeaderCopyright.inc=1093561129</SrcFile233>
-    <SrcFile234>Drivers\Common\I2C_LDDSettings.inc=1088194281</SrcFile234>
-    <SrcFile235>Drivers\Common\I2C_LDDAbstract.inc=1076451655</SrcFile235>
-    <SrcFile236>Drivers\Common\Header.h=1076451655</SrcFile236>
-    <SrcFile237>Drivers\sw\RTOSAdaptor\Common_RTOSAdaptor.prg=1087740902</SrcFile237>
-    <SrcFile238>Drivers\sw\RTOSAdaptor\Default_RTOSAdaptor.prg=1091403847</SrcFile238>
-    <SrcFile239>Drivers\Common\RTOSAdaptor.prg=1076451655</SrcFile239>
-    <SrcFile240>Drivers\Kinetis\I2C_LDD.drv=1093561129</SrcFile240>
-    <SrcFile241>Drivers\I2C_LDD.src=1087718767</SrcFile241>
+    <SrcFile111>Drivers\Common\TimerUnit_LDDOnChannel0.inc=1076451655</SrcFile111>
+    <SrcFile112>Drivers\Common\TimerUnit_LDDResetCounter.inc=1076451655</SrcFile112>
+    <SrcFile113>Drivers\Common\GeneralSetDir.inc=1076451655</SrcFile113>
+    <SrcFile114>Drivers\Common\MultiBitIOSetDir.inc=1076451655</SrcFile114>
+    <SrcFile115>Drivers\Common\BitsIO_LDDSetDir.inc=1086234091</SrcFile115>
+    <SrcFile116>Drivers\Common\OneBitIOGetVal.inc=1076451655</SrcFile116>
+    <SrcFile117>Drivers\Common\OneBitIOSettings.inc=1076451655</SrcFile117>
+    <SrcFile118>Drivers\Common\OneBitIOAbstract.inc=1076451655</SrcFile118>
+    <SrcFile119>Drivers\Kinetis\BitIO.drv=1093838706</SrcFile119>
+    <SrcFile120>Drivers\BitIO.src=1093931556</SrcFile120>
+    <SrcFile121>Drivers\Common\BitIO_LDDGetVal.inc=1091405895</SrcFile121>
+    <SrcFile122>Drivers\Common\BitIO_LDDInit.inc=1086234091</SrcFile122>
+    <SrcFile123>Drivers\Common\BitIO_LDDSettings.inc=1086234091</SrcFile123>
+    <SrcFile124>Drivers\Common\BitIO_LDDAbstract.inc=1086234091</SrcFile124>
+    <SrcFile125>Drivers\Kinetis\BitIO_LDD.drv=1093561129</SrcFile125>
+    <SrcFile126>Drivers\BitIO_LDD.src=1090927447</SrcFile126>
+    <SrcFile127>Drivers\Common\GeneralNegBit.inc=1076451655</SrcFile127>
+    <SrcFile128>Drivers\Common\MultiBitIONegBit.inc=1076451655</SrcFile128>
+    <SrcFile129>Drivers\Common\GeneralClrBit.inc=1076451655</SrcFile129>
+    <SrcFile130>Drivers\Common\MultiBitIOClrBit.inc=1076451655</SrcFile130>
+    <SrcFile131>Drivers\Common\GeneralSetBit.inc=1076451655</SrcFile131>
+    <SrcFile132>Drivers\Common\MultiBitIOSetBit.inc=1076451655</SrcFile132>
+    <SrcFile133>Drivers\Common\GeneralPutBit.inc=1076451655</SrcFile133>
+    <SrcFile134>Drivers\Common\MultiBitIOPutBit.inc=1076451655</SrcFile134>
+    <SrcFile135>Drivers\Common\GeneralGetBit.inc=1076451655</SrcFile135>
+    <SrcFile136>Drivers\Common\MultiBitIOGetBit.inc=1076451655</SrcFile136>
+    <SrcFile137>Drivers\Common\GeneralPutVal.inc=1076451655</SrcFile137>
+    <SrcFile138>Drivers\Common\MultiBitIOPutVal.inc=1076451655</SrcFile138>
+    <SrcFile139>Drivers\Common\GeneralGetVal.inc=1076451655</SrcFile139>
+    <SrcFile140>Drivers\Common\MultiBitIOGetVal.inc=1076451655</SrcFile140>
+    <SrcFile141>Drivers\Common\GeneralGetDir.inc=1076451655</SrcFile141>
+    <SrcFile142>Drivers\Common\MultiBitIOGetDir.inc=1076451655</SrcFile142>
+    <SrcFile143>Drivers\Common\UsedPins.inc=1076451655</SrcFile143>
+    <SrcFile144>Drivers\Common\MultiBitIOSettings.inc=1076451655</SrcFile144>
+    <SrcFile145>Drivers\Common\MultiBitIOAbstract.inc=1076451655</SrcFile145>
+    <SrcFile146>Drivers\Common\symbolsNBitsIOtoBitsIO.prg=1093561129</SrcFile146>
+    <SrcFile147>Drivers\Kinetis\BitsIO.drv=1093838706</SrcFile147>
+    <SrcFile148>Drivers\BitsIO.src=1093931556</SrcFile148>
+    <SrcFile149>Drivers\Common\BitsIO_LDDNegBit.inc=1086234091</SrcFile149>
+    <SrcFile150>Drivers\Common\BitsIO_LDDClrBit.inc=1086234091</SrcFile150>
+    <SrcFile151>Drivers\Common\BitsIO_LDDSetBit.inc=1086234091</SrcFile151>
+    <SrcFile152>Drivers\Common\BitsIO_LDDPutBit.inc=1091847053</SrcFile152>
+    <SrcFile153>Drivers\Common\BitsIO_LDDGetBit.inc=1093905780</SrcFile153>
+    <SrcFile154>Drivers\Common\BitsIO_LDDPutVal.inc=1091847053</SrcFile154>
+    <SrcFile155>Drivers\Common\BitsIO_LDDGetVal.inc=1091847053</SrcFile155>
+    <SrcFile156>Drivers\Common\BitsIO_LDDGetDir.inc=1086234091</SrcFile156>
+    <SrcFile157>Drivers\Common\BitsIO_LDDInit.inc=1093905780</SrcFile157>
+    <SrcFile158>Drivers\Common\CopyrightUserC.inc=1076451655</SrcFile158>
+    <SrcFile159>Drivers\Common\BitsIO_LDDSettings.inc=1091466131</SrcFile159>
+    <SrcFile160>Drivers\Common\BitsIO_LDDAbstract.inc=1086234091</SrcFile160>
+    <SrcFile161>Drivers\Common\LDDSupport\GPIO\GPIO.inc=1091466131</SrcFile161>
+    <SrcFile162>Drivers\Common\LDDSupport\GPIO\PDD_MacroNames.inc=1091466131</SrcFile162>
+    <SrcFile163>Drivers\Kinetis\BitsIO_LDD.drv=1093561129</SrcFile163>
+    <SrcFile164>Drivers\BitsIO_LDD.src=1086234091</SrcFile164>
+    <SrcFile165>Drivers\Common\ExternalInterruptOnInterrupt.inc=1076451655</SrcFile165>
+    <SrcFile166>Drivers\Common\ExternalInterruptGetVal.inc=1076466278</SrcFile166>
+    <SrcFile167>Drivers\Common\ExternalInterruptDisable.inc=1076451655</SrcFile167>
+    <SrcFile168>Drivers\Common\GeneralParametersNone.inc=1076451655</SrcFile168>
+    <SrcFile169>Drivers\Common\ExternalInterruptEnable.inc=1076451655</SrcFile169>
+    <SrcFile170>Drivers\Common\UsedPin.inc=1076451655</SrcFile170>
+    <SrcFile171>Drivers\Common\ExternalInterruptSettings.inc=1076451655</SrcFile171>
+    <SrcFile172>Drivers\Common\ExternalInterruptAbstract.inc=1076451655</SrcFile172>
+    <SrcFile173>Drivers\Kinetis\ExternalInterrupt.drv=1093838706</SrcFile173>
+    <SrcFile174>Drivers\ExtInt.src=1093931556</SrcFile174>
+    <SrcFile175>Drivers\Common\CommonRegInitialization_NotRst.prg=1076451655</SrcFile175>
+    <SrcFile176>Drivers\Common\CommonInitialization_NotRst.prg=1076451655</SrcFile176>
+    <SrcFile177>Drivers\Common\InitReg32Block.prg=1076451655</SrcFile177>
+    <SrcFile178>Drivers\Common\InitReg32.prg=1076451655</SrcFile178>
+    <SrcFile179>Drivers\Common\ExtInt_LDDOnInterrupt.inc=1086234091</SrcFile179>
+    <SrcFile180>Drivers\Common\ExtInt_LDDGetVal.inc=1086234091</SrcFile180>
+    <SrcFile181>Drivers\Common\ExtInt_LDDDisable.inc=1086234091</SrcFile181>
+    <SrcFile182>Drivers\Common\ExtInt_LDDEnable.inc=1086234091</SrcFile182>
+    <SrcFile183>Drivers\Common\ExtInt_LDDInit.inc=1086234091</SrcFile183>
+    <SrcFile184>Drivers\Common\ExtInt_LDDSettings.inc=1087269290</SrcFile184>
+    <SrcFile185>Drivers\Common\ExtInt_LDDAbstract.inc=1086234091</SrcFile185>
+    <SrcFile186>Drivers\Common\Utils\Misc.inc=1089756299</SrcFile186>
+    <SrcFile187>Drivers\Kinetis\ExtInt_LDD.drv=1093952229</SrcFile187>
+    <SrcFile188>Drivers\ExtInt_LDD.src=1090927447</SrcFile188>
+    <SrcFile189>Drivers\Common\SetReg32.prg=1092125739</SrcFile189>
+    <SrcFile190>Drivers\Common\TimerUnit_LDDOnCounterRestart.inc=1076451655</SrcFile190>
+    <SrcFile191>Drivers\Common\TimerUnit_LDDGetCounterValue.inc=1093952229</SrcFile191>
+    <SrcFile192>Drivers\Common\TimerUnit_LDDDeinit.inc=1076451655</SrcFile192>
+    <SrcFile193>Drivers\Common\TimerUnit_LDDInit.inc=1076451655</SrcFile193>
+    <SrcFile194>Drivers\Common\TimerUnit_LDDSettings.inc=1090585412</SrcFile194>
+    <SrcFile195>Drivers\Common\TimerUnit_LDDAbstract.inc=1076451655</SrcFile195>
+    <SrcFile196>Drivers\Kinetis\TimerUnit_LDD.drv=1093838706</SrcFile196>
+    <SrcFile197>Drivers\TimerUnit_LDD.src=1087269290</SrcFile197>
+    <SrcFile198>Drivers\Kinetis\InitIntRequest.prg=1093478992</SrcFile198>
+    <SrcFile199>Drivers\Kinetis\InitIntPriority.prg=1093478992</SrcFile199>
+    <SrcFile200>Drivers\Kinetis\InitInterrupt.prg=1076451655</SrcFile200>
+    <SrcFile201>Drivers\VAR\InitInterrupt.prg=1086871955</SrcFile201>
+    <SrcFile202>Drivers\Kinetis\InitPin.prg=1078165262</SrcFile202>
+    <SrcFile203>Drivers\VAR\InitPin.prg=1087193876</SrcFile203>
+    <SrcFile204>Drivers\Common\GenReg8BitsInitInfo.prg=1090943028</SrcFile204>
+    <SrcFile205>Drivers\Common\SetReg8.prg=1092125739</SrcFile205>
+    <SrcFile206>Drivers\Kinetis\PExRegMap_MKL25Z4.prg=1092125739</SrcFile206>
+    <SrcFile207>Drivers\Common\SetRegBitMask.prg=1092125739</SrcFile207>
+    <SrcFile208>Drivers\Common\GenReg32BitsInitInfo.prg=1090943028</SrcFile208>
+    <SrcFile209>Drivers\Common\SetRegBits32.prg=1092125739</SrcFile209>
+    <SrcFile210>Drivers\Kinetis\InitClockGate.prg=1093478992</SrcFile210>
+    <SrcFile211>Drivers\VAR\InitClockGate.prg=1088634565</SrcFile211>
+    <SrcFile212>Drivers\Common\DefineISR.prg=1090473516</SrcFile212>
+    <SrcFile213>Drivers\Common\Header.C=1076451655</SrcFile213>
+    <SrcFile214>Drivers\Common\I2C_LDDOnError.inc=1076451655</SrcFile214>
+    <SrcFile215>Drivers\Common\I2C_LDDOnSlaveBlockReceived.inc=1076451655</SrcFile215>
+    <SrcFile216>Drivers\Common\GeneralEvent.inc=1076451655</SrcFile216>
+    <SrcFile217>Drivers\Common\I2C_LDDOnSlaveBlockSent.inc=1076451655</SrcFile217>
+    <SrcFile218>Drivers\Common\Header.end=1076451655</SrcFile218>
+    <SrcFile219>Drivers\Common\GeneralInternalDescription.prg=1076451655</SrcFile219>
+    <SrcFile220>Drivers\Common\GeneralInternal.inc=1076451655</SrcFile220>
+    <SrcFile221>Drivers\Common\CreateCodeSection.prg=1089569592</SrcFile221>
+    <SrcFile222>Drivers\Common\DeclareISR.prg=1090473516</SrcFile222>
+    <SrcFile223>Drivers\Common\CreateIntSection.prg=1089569592</SrcFile223>
+    <SrcFile224>Drivers\Common\I2C_LDDGetError.inc=1076451655</SrcFile224>
+    <SrcFile225>Drivers\Common\I2C_LDDSlaveReceiveBlock.inc=1076451655</SrcFile225>
+    <SrcFile226>Drivers\Common\I2C_LDDSlaveSendBlock.inc=1076451655</SrcFile226>
+    <SrcFile227>Drivers\Common\I2C_LDDEnable.inc=1076451655</SrcFile227>
+    <SrcFile228>Drivers\Common\GeneralReturnNothing.inc=1076451655</SrcFile228>
+    <SrcFile229>Drivers\Common\I2C_LDDDeinit.inc=1076451655</SrcFile229>
+    <SrcFile230>Drivers\Common\GeneralDamage.inc=1076451655</SrcFile230>
+    <SrcFile231>Drivers\Common\GeneralParameters.inc=1076451655</SrcFile231>
+    <SrcFile232>Drivers\Common\GeneralMethod.inc=1076451655</SrcFile232>
+    <SrcFile233>Drivers\Common\I2C_LDDInit.inc=1076451655</SrcFile233>
+    <SrcFile234>Drivers\Common\HeaderCopyright.inc=1093561129</SrcFile234>
+    <SrcFile235>Drivers\Common\I2C_LDDSettings.inc=1088194281</SrcFile235>
+    <SrcFile236>Drivers\Common\I2C_LDDAbstract.inc=1076451655</SrcFile236>
+    <SrcFile237>Drivers\Common\Header.h=1076451655</SrcFile237>
+    <SrcFile238>Drivers\sw\RTOSAdaptor\Common_RTOSAdaptor.prg=1087740902</SrcFile238>
+    <SrcFile239>Drivers\sw\RTOSAdaptor\Default_RTOSAdaptor.prg=1091403847</SrcFile239>
+    <SrcFile240>Drivers\Common\RTOSAdaptor.prg=1076451655</SrcFile240>
+    <SrcFile241>Drivers\Kinetis\I2C_LDD.drv=1093561129</SrcFile241>
+    <SrcFile242>Drivers\I2C_LDD.src=1087718767</SrcFile242>
   </UsedSrcFiles>
 </GenerationInfo_G_C>

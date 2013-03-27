@@ -365,9 +365,9 @@ PE_DEBUGHALT();
     <Enabled v="Y" />
     <Properties>
       <Component_name v="I2cSlave" />
-      <I2C_channel v="I2C1" />
+      <I2C_channel v="I2C0" />
       <boolgroup name="Interrupt service" v="Enabled">
-        <Interrupt v="INT_I2C1" />
+        <Interrupt v="INT_I2C0" />
         <Interrupt_priority v="medium priority" />
       </boolgroup>
       <group name="Settings">
@@ -385,11 +385,11 @@ PE_DEBUGHALT();
         </boolgroup>
         <group name="Pins">
           <group name="SDA pin">
-            <SDA_pin v="PTE0/UART1_TX/RTC_CLKOUT/CMP0_OUT/I2C1_SDA" />
+            <SDA_pin v="CMP0_IN3/PTC9/I2C0_SDA/TPM0_CH5" />
             <SDA_pin_signal v="" />
           </group>
           <group name="SCL pin">
-            <SCL_pin v="PTE1/SPI1_MOSI/UART1_RX/SPI1_MISO/I2C1_SCL" />
+            <SCL_pin v="CMP0_IN2/PTC8/I2C0_SCL/TPM0_CH4" />
             <SCL_pin_signal v="" />
           </group>
           <High_drive_select v="Disabled" />
@@ -1304,17 +1304,29 @@ PE_DEBUGHALT();
       <Counter_width v="16 bits" />
       <Value_type v="Optimal" />
       <enumgroup name="Input clock source" v="Internal">
-        <Counter_frequency v="1.31072 MHz" />
+        <Counter_frequency v="655.36 kHz" />
       </enumgroup>
       <enumgroup name="Counter restart" v="On-overrun">
-        <Overrun_period v="50 ms" />
+        <Overrun_period v="Auto select" />
         <boolgroup name="Interrupt" v="Enabled">
           <Interrupt v="INT_TPM2" />
           <Interrupt_priority v="medium priority" />
         </boolgroup>
       </enumgroup>
-      <list name="Channel list" v="0">
-        <EmptySection_DummyValue />
+      <list name="Channel list" v="1">
+        <group name="Channel 0">
+          <enumgroup name="Mode" v="Compare">
+            <Compare v="TPM2_C0V" />
+            <Offset v="0 timer-ticks" />
+            <enumgroup name="Output on compare" v="Disconnect">
+              <EmptySection_DummyValue />
+            </enumgroup>
+            <boolgroup name="Interrupt" v="Enabled">
+              <Interrupt v="INT_TPM2" />
+              <Interrupt_priority v="medium priority" />
+            </boolgroup>
+          </enumgroup>
+        </group>
       </list>
       <group name="Initialization">
         <Enabled_in_init__code v="yes" />
@@ -1323,7 +1335,7 @@ PE_DEBUGHALT();
         </list>
         <group name="Event mask">
           <OnCounterRestart v="Enabled" />
-          <OnChannel0 v="Disabled" />
+          <OnChannel0 v="Enabled" />
           <OnChannel1 v="Disabled" />
           <OnChannel2 v="Disabled" />
           <OnChannel3 v="Disabled" />
@@ -1375,7 +1387,9 @@ PE_DEBUGHALT();
       <event name="OnCounterRestart" v="generate code">
         <Event_procedure_name v="US_Referenztimer_OnCounterRestart" />
       </event>
-      <event name="OnChannel0" v="don&amp;apos;t generate code" />
+      <event name="OnChannel0" v="generate code">
+        <Event_procedure_name v="US_Referenztimer_OnChannel0" />
+      </event>
       <event name="OnChannel1" v="don&amp;apos;t generate code" />
       <event name="OnChannel2" v="don&amp;apos;t generate code" />
       <event name="OnChannel3" v="don&amp;apos;t generate code" />
@@ -1389,9 +1403,9 @@ PE_DEBUGHALT();
     <Enabled v="Y" />
     <Properties>
       <Component_name v="I2C_Kompass" />
-      <I2C_channel v="I2C0" />
+      <I2C_channel v="I2C1" />
       <boolgroup name="Interrupt service" v="Enabled">
-        <Interrupt v="INT_I2C0" />
+        <Interrupt v="INT_I2C1" />
         <Interrupt_priority v="medium priority" />
       </boolgroup>
       <group name="Settings">
@@ -1405,11 +1419,11 @@ PE_DEBUGHALT();
         <boolgroup name="SLAVE mode" v="Disabled" />
         <group name="Pins">
           <group name="SDA pin">
-            <SDA_pin v="PTE25/TPM0_CH1/I2C0_SDA" />
+            <SDA_pin v="PTE0/UART1_TX/RTC_CLKOUT/CMP0_OUT/I2C1_SDA" />
             <SDA_pin_signal v="" />
           </group>
           <group name="SCL pin">
-            <SCL_pin v="PTE24/TPM0_CH0/I2C0_SCL" />
+            <SCL_pin v="PTE1/SPI1_MOSI/UART1_RX/SPI1_MISO/I2C1_SCL" />
             <SCL_pin_signal v="" />
           </group>
           <High_drive_select v="Disabled" />

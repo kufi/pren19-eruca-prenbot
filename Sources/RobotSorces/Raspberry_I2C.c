@@ -15,6 +15,7 @@ byte *buffer;
 RaspberryPtr raspberryDataPtr;
 int commandLength;
 
+
 RaspberryPtr initRaspberryI2C()
 {
 	commandLength = 3;
@@ -27,6 +28,36 @@ RaspberryPtr initRaspberryI2C()
 	raspberryReceiveBlock();
 	return raspberryDataPtr;
 }
+
+
+
+
+
+int reciveFromPi(char* comand, int* value){
+	
+	if(raspberryDataPtr->received == 1){
+		      raspberryDataPtr->received = 0;
+		      *comand = (char) *buffer;
+			  *value = (((int)*(buffer + 1)) << 8 ) + (int)*(buffer + 2);
+			  raspberryReceiveBlock();
+			  return 1;
+		  }
+	return 0;	
+}
+
+int sendToPi(char* comand, int* value){
+	int mask=0xFF;
+	byte bytesToSend[3];
+	
+	bytesToSend[0]=(byte)*comand;
+	bytesToSend[1]=(byte)(*value>>8);
+    bytesToSend[2]= (byte) (*value & mask);
+	raspberrySendBlock(bytesToSend);  
+	//raspberryReceiveBlock(); Wird im sent event aufgerufen.
+	return 1; //nur für evt. Fehlerkorektur 
+}
+
+
 
 RaspberryPtr getRaspberryDataPtr()
 {

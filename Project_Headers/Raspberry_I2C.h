@@ -12,6 +12,7 @@ struct Raspberry_
 {
 	int received;
 	int error;
+	int sent;
 };
 
 typedef struct Raspberry_ Raspberry;
@@ -21,5 +22,6 @@ void raspberryReceiveBlock();
 void raspberrySendBlock(byte *bytes);
 RaspberryPtr getRaspberryDataPtr();
 byte *getRaspberryBuffer();
+int reciveFromPi(char* comand, int* value);
 
 #endif /* RASPBERRY_I2C_H_ */

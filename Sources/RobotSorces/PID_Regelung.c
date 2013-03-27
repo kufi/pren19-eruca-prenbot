@@ -38,7 +38,7 @@ void initPID(int maximalausschlag_,int p_factor_,int i_factor_,int d_factor_){
 int pidA(int sollwert,int istwert){
 	int temp;
 	int ret;
-	
+	if(sollwert==0) return -0xFFFF;
 	
 	speedA=(100000/istwert)-10;
 	if(speedA>1700) speedA=0;
@@ -83,7 +83,7 @@ int pidA(int sollwert,int istwert){
 	    else if(ret < -maximalausschlagA){
 	      ret = -maximalausschlagA;
 	    }
-	    return ret/200;
+	    return ret;
 	 
 }
 
@@ -91,7 +91,7 @@ int pidB(int sollwert,int istwert){
 	int temp;
 	int ret;
 	
-	
+	if(sollwert==0) return -0xFFFF;
 	speedB=(100000/istwert)-10;
 	if(speedB>1700) speedB=0;
 	errorB = sollwert - speedB;
@@ -135,6 +135,6 @@ int pidB(int sollwert,int istwert){
 	    else if(ret < -maximalausschlagB){
 	      ret = -maximalausschlagB;
 	    }
-	    return ret/200;
+	    return ret;
 }
 

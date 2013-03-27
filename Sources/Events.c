@@ -214,7 +214,7 @@ void I2C_Kompass_OnError(LDD_TUserData *UserDataPtr)
 void US_Rechts_HeckListener_OnInterrupt(void)
 {
 	atual_US_ticks = US_Referenztimer_GetCounterValue(MyFakeUSRefrenzTimerPtr);
-	distanceRechtsHeck=(((atual_US_ticks-old_US_ticks)*1000)/DEVIDER)-DISTANCEOFFSET;
+	distanceRechtsHeck=(int) ((((atual_US_ticks-old_US_ticks)*1000)/DEVIDER)-DISTANCEOFFSET);
 	US_Triger_SetBit(3);
 	US_Rechts_HeckListener_Disable();
 	bussy = 0;
@@ -235,7 +235,7 @@ void US_Rechts_HeckListener_OnInterrupt(void)
 void US_Rechts_FrontListener_OnInterrupt(void)
 {
 	        atual_US_ticks = US_Referenztimer_GetCounterValue(MyFakeUSRefrenzTimerPtr);
-			distanceRechtsFront=(((atual_US_ticks-old_US_ticks)*1000)/DEVIDER)-DISTANCEOFFSET;
+			distanceRechtsFront=((((atual_US_ticks-old_US_ticks)*1000)/DEVIDER)-DISTANCEOFFSET);
 			US_Triger_SetBit(2);
 			US_Rechts_FrontListener_Disable();
 			bussy = 0;
@@ -256,7 +256,7 @@ void US_Rechts_FrontListener_OnInterrupt(void)
 void US_HeckListener_OnInterrupt(void)
 {
 	    atual_US_ticks = US_Referenztimer_GetCounterValue(MyFakeUSRefrenzTimerPtr);
-		distanceHeck=(((atual_US_ticks-old_US_ticks)*1000)/DEVIDER)-DISTANCEOFFSET;
+		distanceHeck=((((atual_US_ticks-old_US_ticks)*1000)/DEVIDER)-DISTANCEOFFSET);
 		US_Triger_SetBit(1);
 		US_HeckListener_Disable();
 		bussy = 0;
@@ -277,60 +277,10 @@ void US_HeckListener_OnInterrupt(void)
 void US_FrontListener_OnInterrupt(void)
 {
 	atual_US_ticks = US_Referenztimer_GetCounterValue(MyFakeUSRefrenzTimerPtr);
-	distanceFront=(((atual_US_ticks-old_US_ticks)*1000)/DEVIDER)-DISTANCEOFFSET;
+	distanceFront=((((atual_US_ticks-old_US_ticks)*1000)/DEVIDER)-DISTANCEOFFSET);
 	US_Triger_SetBit(0);
 	US_FrontListener_Disable();
 	bussy = 0;
-}
-
-/*
-** ===================================================================
-**     Event       :  US_Referenztimer_OnCounterRestart (module Events)
-**
-**     Component   :  US_Referenztimer [TimerUnit_LDD]
-**     Description :
-**         Called if counter overflow/underflow or counter is
-**         reinitialized by modulo or compare register matching.
-**         OnCounterRestart event and Timer unit must be enabled. See
-**         <SetEventMask> and <GetEventMask> methods. This event is
-**         available only if a <Interrupt> is enabled.
-**     Parameters  :
-**         NAME            - DESCRIPTION
-**       * UserDataPtr     - Pointer to the user or
-**                           RTOS specific data. The pointer passed as
-**                           the parameter of Init method.
-**     Returns     : Nothing
-** ===================================================================
-*/
-void US_Referenztimer_OnCounterRestart(LDD_TUserData *UserDataPtr)
-{
-	if (freqwentUSactive){
-	timepast++;
-	if(timepast>=8){
-		US_Triger_PutVal(0xF);
-		bussy=0;
-	}
-	if((timepast>=APTASTRATE) && !bussy){
-		switch (actifUScomponent) {
-			case 1:
-				mesureUSHeck();
-				break;
-			case 2:
-				mesureUSRechts_Front();			
-				break;
-			case 3:
-				mesureUSRechts_Heck();						
-				break;
-			case 4:
-				mesureUSFront();									
-				break;			
-			default:
-				break;
-		}
-		
-		timepast=0;
-	  }
-   }
 }
 
 /*
@@ -534,8 +484,58 @@ void I2cSlave_OnSlaveBlockReceived(LDD_TUserData *UserDataPtr)
 void I2cSlave_OnError(LDD_TUserData *UserDataPtr)
 {
 	RaspberryPtr raspberryPtr = (RaspberryPtr)UserDataPtr;
-	raspberryPtr->received = 1;
 	raspberryPtr->error = 1;
+}
+
+/*
+** ===================================================================
+**     Event       :  US_Referenztimer_OnChannel0 (module Events)
+**
+**     Component   :  US_Referenztimer [TimerUnit_LDD]
+**     Description :
+**         Called if compare register match the counter registers or
+**         capture register has a new content. OnChannel0 event and
+**         Timer unit must be enabled. See <SetEventMask> and
+**         <GetEventMask> methods. This event is available only if a
+**         <Interrupt> is enabled.
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**       * UserDataPtr     - Pointer to the user or
+**                           RTOS specific data. The pointer passed as
+**                           the parameter of Init method.
+**     Returns     : Nothing
+** ===================================================================
+*/
+void US_Referenztimer_OnChannel0(LDD_TUserData *UserDataPtr)
+{
+	TPM2_C0V = US_Referenztimer_GetCounterValue(MyFakeUSRefrenzTimerPtr)+6553;
+	if (freqwentUSactive){
+		timepast++;
+		if(timepast>=3){
+			US_Triger_PutVal(0xF);
+			bussy=0;
+		}
+		if((timepast>=APTASTRATE) && !bussy){
+			switch (actifUScomponent) {
+				case 1:
+					mesureUSHeck();
+					break;
+				case 2:
+					mesureUSRechts_Front();			
+					break;
+				case 3:
+					mesureUSRechts_Heck();						
+					break;
+				case 4:
+					mesureUSFront();									
+					break;			
+				default:
+					break;
+			}
+			
+			timepast=0;
+		  }
+	   }
 }
 
 /* END Events */

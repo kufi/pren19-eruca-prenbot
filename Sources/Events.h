@@ -340,27 +340,6 @@ void US_FrontListener_OnInterrupt(void);
 ** ===================================================================
 */
 
-void US_Referenztimer_OnCounterRestart(LDD_TUserData *UserDataPtr);
-/*
-** ===================================================================
-**     Event       :  US_Referenztimer_OnCounterRestart (module Events)
-**
-**     Component   :  US_Referenztimer [TimerUnit_LDD]
-**     Description :
-**         Called if counter overflow/underflow or counter is
-**         reinitialized by modulo or compare register matching.
-**         OnCounterRestart event and Timer unit must be enabled. See
-**         <SetEventMask> and <GetEventMask> methods. This event is
-**         available only if a <Interrupt> is enabled.
-**     Parameters  :
-**         NAME            - DESCRIPTION
-**       * UserDataPtr     - Pointer to the user or
-**                           RTOS specific data. The pointer passed as
-**                           the parameter of Init method.
-**     Returns     : Nothing
-** ===================================================================
-*/
-
 void RegelungReferenztimer_OnCounterRestart(LDD_TUserData *UserDataPtr);
 /*
 ** ===================================================================
@@ -697,6 +676,27 @@ void I2cSlave_OnError(LDD_TUserData *UserDataPtr);
 **       * UserDataPtr     - Pointer to the user or
 **                           RTOS specific data. This pointer is passed
 **                           as the parameter of Init method.
+**     Returns     : Nothing
+** ===================================================================
+*/
+
+void US_Referenztimer_OnChannel0(LDD_TUserData *UserDataPtr);
+/*
+** ===================================================================
+**     Event       :  US_Referenztimer_OnChannel0 (module Events)
+**
+**     Component   :  US_Referenztimer [TimerUnit_LDD]
+**     Description :
+**         Called if compare register match the counter registers or
+**         capture register has a new content. OnChannel0 event and
+**         Timer unit must be enabled. See <SetEventMask> and
+**         <GetEventMask> methods. This event is available only if a
+**         <Interrupt> is enabled.
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**       * UserDataPtr     - Pointer to the user or
+**                           RTOS specific data. The pointer passed as
+**                           the parameter of Init method.
 **     Returns     : Nothing
 ** ===================================================================
 */

@@ -6,7 +6,7 @@
 **     Component   : TimerUnit_LDD
 **     Version     : Component 01.137, Driver 01.08, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2013-03-15, 11:32, # CodeGen: 11
+**     Date/Time   : 2013-03-25, 18:17, # CodeGen: 13
 **     Abstract    :
 **          This TimerUnit component provides a low level API for unified hardware access across
 **          various timer devices using the Prescaler-Counter-Compare-Capture timer structure.
@@ -18,19 +18,25 @@
 **          Counter width                                  : 16 bits
 **          Value type                                     : Optimal
 **          Input clock source                             : Internal
-**            Counter frequency                            : 1.31072 MHz
+**            Counter frequency                            : 655.36 kHz
 **          Counter restart                                : On-overrun
-**            Overrun period                               : 50 ms
-**            Interrupt                                    : Enabled
-**              Interrupt                                  : INT_TPM2
-**              Interrupt priority                         : medium priority
-**          Channel list                                   : 0
+**            Overrun period                               : Auto select
+**            Interrupt                                    : Disabled
+**          Channel list                                   : 1
+**            Channel 0                                    : 
+**              Mode                                       : Compare
+**                Compare                                  : TPM2_C0V
+**                Offset                                   : 0 timer-ticks
+**                Output on compare                        : Disconnect
+**                Interrupt                                : Enabled
+**                  Interrupt                              : INT_TPM2
+**                  Interrupt priority                     : medium priority
 **          Initialization                                 : 
 **            Enabled in init. code                        : yes
 **            Auto initialization                          : yes
 **            Event mask                                   : 
-**              OnCounterRestart                           : Enabled
-**              OnChannel0                                 : Disabled
+**              OnCounterRestart                           : Disabled
+**              OnChannel0                                 : Enabled
 **              OnChannel1                                 : Disabled
 **              OnChannel2                                 : Disabled
 **              OnChannel3                                 : Disabled
@@ -75,12 +81,13 @@
 #define __BWUserType_US_Referenztimer_TValueType
   typedef uint32_t US_Referenztimer_TValueType ; /* Type for data parameters of methods */
 #endif
-#define US_Referenztimer_CNT_INP_FREQ_U_0 0x00140000UL /* Counter input frequency in Hz */
-#define US_Referenztimer_CNT_INP_FREQ_R_0 1310720.778463285F /* Counter input frequency in Hz */
+#define US_Referenztimer_CNT_INP_FREQ_U_0 0x000A0000UL /* Counter input frequency in Hz */
+#define US_Referenztimer_CNT_INP_FREQ_R_0 655359.9597346841F /* Counter input frequency in Hz */
 #define US_Referenztimer_CNT_INP_FREQ_COUNT 0U /* Count of predefined counter input frequencies */
-#define US_Referenztimer_NUMBER_OF_CHANNELS 0x00U /* Count of predefined channels */
+#define US_Referenztimer_NUMBER_OF_CHANNELS 0x01U /* Count of predefined channels */
 #define US_Referenztimer_COUNTER_WIDTH 0x10U /* Counter width in bits  */
 #define US_Referenztimer_COUNTER_DIR DIR_UP /* Direction of counting */
+#define US_Referenztimer_OFFSET_0_TICKS 0x00ul /* Initialization value of offset as 'counter ticks' for channel 0 */
 /* Peripheral base address of a device allocated by the component. This constant can be used directly in PDD macros. */
 #define US_Referenztimer_PRPH_BASE_ADDRESS  0x4003A000U
   
@@ -94,7 +101,7 @@
 #define US_Referenztimer_GetCounterValue_METHOD_ENABLED
 
 /* Events configuration constants - generated for all enabled component's events */
-#define US_Referenztimer_OnCounterRestart_EVENT_ENABLED
+#define US_Referenztimer_OnChannel0_EVENT_ENABLED
 
 
 
